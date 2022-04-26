@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="18f5dd98a6d3456d8829081ce370fdda" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="LicensingModel.Amplua" Width="1.5" PointX="13.125" PointY="9.375" />
+        <EntityTypeShape EntityType="LicensingModel.BirthCertificate" Width="1.5" PointX="11.875" PointY="6.25" />
+        <EntityTypeShape EntityType="LicensingModel.City" Width="1.5" PointX="5.25" PointY="14.5" />
+        <EntityTypeShape EntityType="LicensingModel.Coach" Width="1.5" PointX="4.875" PointY="4.25" />
+        <EntityTypeShape EntityType="LicensingModel.Passport" Width="1.5" PointX="3" PointY="19.375" />
+        <EntityTypeShape EntityType="LicensingModel.Putter" Width="1.5" PointX="3" PointY="17.125" />
+        <EntityTypeShape EntityType="LicensingModel.Region" Width="1.5" PointX="3" PointY="14.5" />
+        <EntityTypeShape EntityType="LicensingModel.Role" Width="1.5" PointX="7.75" PointY="1" />
+        <EntityTypeShape EntityType="LicensingModel.Team" Width="1.5" PointX="2.5" PointY="4.75" />
+        <EntityTypeShape EntityType="LicensingModel.User" Width="1.5" PointX="10" PointY="0.875" />
+        <AssociationConnector Association="LicensingModel.FK_City_Region" />
+        <AssociationConnector Association="LicensingModel.FK_Coach_Team" />
+        <AssociationConnector Association="LicensingModel.FK_User_Role" />
+        <EntityTypeShape EntityType="LicensingModel.Licensing" Width="1.5" PointX="3" PointY="22.625" />
+        <EntityTypeShape EntityType="LicensingModel.Players" Width="1.5" PointX="8.25" PointY="3.5" />
+        <EntityTypeShape EntityType="LicensingModel.TypeLictnsing" Width="1.5" PointX="0.75" PointY="23" />
+        <AssociationConnector Association="LicensingModel.FK_Players_Amplua" />
+        <AssociationConnector Association="LicensingModel.FK_Players_BirthCertificate" />
+        <AssociationConnector Association="LicensingModel.FK_Players_Coach" />
+        <AssociationConnector Association="LicensingModel.FK_Licensing_TypeLictnsing" />
+        <AssociationConnector Association="LicensingModel.FK_Players_Licensing" />
+        <AssociationConnector Association="LicensingModel.FK_Players_Passport" />
+        <AssociationConnector Association="LicensingModel.FK_Players_Putter" />
+        <AssociationConnector Association="LicensingModel.FK_Players_Region" />
+        <AssociationConnector Association="LicensingModel.FK_Players_Team" />
+        <AssociationConnector Association="LicensingModel.FK_Players_TypeLictnsing" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

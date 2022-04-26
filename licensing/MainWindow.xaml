@@ -1,0 +1,30 @@
+﻿<Window x:Class="licensing.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:licensing"
+        mc:Ignorable="d"
+        Icon="resurses/logo.ico"
+        Title="Главная страница" Height="500" Width="850">
+   
+    <Grid>
+        
+       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="5*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="9*" />
+        </Grid.ColumnDefinitions>
+
+        <DockPanel Grid.ColumnSpan="2" LastChildFill="True">
+            <Image Source="resurses\logo3.png" DockPanel.Dock="Left"/>
+            <TextBlock Text="Лицензирование Игроков России" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize ="30" />
+        </DockPanel>
+        <Frame x:Name="FrameMain" Grid.Row="1" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden" />
+    </Grid>
+</Window>

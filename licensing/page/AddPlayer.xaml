@@ -1,0 +1,106 @@
+﻿<Page x:Class="licensing.AddPlayer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:licensing"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Добавить игрока">
+
+
+    <Grid>
+
+
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Center" Grid.RowSpan="2" Width="485">
+
+                <GroupBox Header="Фамилия" Margin="219,15,-0.2,0">
+                    <TextBox Width="200"  x:Name="Surname" Text="{Binding Surname}"  TextChanged="Surname_TextChanged"/>
+                </GroupBox>
+                <GroupBox Header="Имя" Margin="219,0,-0.2,0">
+                    <TextBox Width="200" x:Name="Name" Text="{Binding Name}" TextChanged="Name_TextChanged"/>
+                </GroupBox>
+                <GroupBox Header="Отчество" Margin="219,0,-0.2,0">
+                    <TextBox Width="200" x:Name="Patronymic" Text="{Binding Patronymic}" TextChanged="Patronymic_TextChanged"/>
+                </GroupBox>
+                <GroupBox Header="Введите дату рождения" Margin="219,0,-0.2,0">
+                    <DatePicker x:Name="GBBir"/>
+                </GroupBox>
+                <GroupBox Header="Игровой номер" Margin="219,0,-0.2,0">
+                    <TextBox Width="200" x:Name="GameNumber" Text="{Binding GameNumber}" TextChanged="GameNumber_TextChanged"/>
+                </GroupBox>
+                <GroupBox Header="Амплуа игрока" Margin="219,0,-0.2,0">
+                    <ComboBox x:Name="TypeAmp" SelectionChanged="TypeAmp_SelectionChanged" HorizontalAlignment="Right" Margin="0,0,-0.4,0" Width="254">
+                        <ComboBoxItem Content="Нападающий"/>
+                        <ComboBoxItem Content="Защитник"/>
+                        <ComboBoxItem Content="Вратарь"/>
+
+                    </ComboBox>
+                </GroupBox>
+                <StackPanel Height="177" Margin="0,-350,265.8,0">
+                    <Border Width="200" Height="150" BorderBrush="#EFC7FF" BorderThickness="1px">
+
+                        <Image x:Name="imgh" Width="200" Height="150" Source="{Binding Image}"/>
+                    </Border>
+                    <Button x:Name="addImg" Click="addImg_Click" Content="Добавить фото" Margin="18,0,17.2,0"/>
+                </StackPanel>
+
+                <GroupBox Header="Хват клюшки" Margin="219,0,-0.2,0">
+                    <ComboBox x:Name="TypePut" SelectionChanged="TypePut_SelectionChanged">
+                        <ComboBoxItem Content="Левый"/>
+                        <ComboBoxItem Content="Правый"/>
+                        <ComboBoxItem Content="Не требуется"/>
+
+                    </ComboBox>
+                </GroupBox>
+
+                <GroupBox Header="Тренер" Margin="219,0,-0.2,0">
+                    <ComboBox x:Name="CoachCB" SelectionChanged="CoachCB_SelectionChanged_1">
+                        <ComboBoxItem Content="Китаева Мария Николаевна"/>
+                        <ComboBoxItem Content="Бульбаш Анастасия Сергеевна"/>
+
+
+                    </ComboBox>
+                </GroupBox>
+                <GroupBox Header="Команда" Margin="219,0,-0.2,0">
+                    <ComboBox x:Name="TeamCB" SelectionChanged="TeamCB_SelectionChanged">
+                        <ComboBoxItem Content="Сборная Нижегородской области"/>
+                        <ComboBoxItem Content="Нижегородец"/>
+
+
+                    </ComboBox>
+                </GroupBox>
+                <GroupBox Header="Регион" Margin="219,0,-0.2,0">
+                    <ComboBox x:Name="RegCB" SelectionChanged="RegCB_SelectionChanged">
+                        <ComboBoxItem Content="Нижегородская область"/>
+                        <ComboBoxItem Content="Архангельская область"/>
+                    </ComboBox>
+                </GroupBox>
+                <GroupBox Header="Номер лицензии" Margin="0,-440,270.8,0" Height="45">
+                    <TextBox x:Name="NumberLicenseTB"  Width="200" Margin="1,0,1.4,-0.4"/>
+                </GroupBox>
+                <GroupBox Header="Вид лицензии" Margin="0,-350,270.8,0" Height="45">
+                    <ComboBox x:Name="TypeLic" SelectionChanged="TypeLic_SelectionChanged">
+                        <ComboBoxItem Content="Региональная"/>
+                        <ComboBoxItem Content="Всероссийская"/>
+                        <ComboBoxItem Content="Всероссийская клубная"/>
+                    </ComboBox>
+                </GroupBox>
+                <GroupBox Header="Введите дату начала" Margin="0,-280,270.8,0" Height="45">
+                    <DatePicker x:Name="GBStart"/>
+                </GroupBox>
+                <GroupBox Header="Введите дату конца" Margin="0,-200,270.8,0" Height="45">
+                    <DatePicker x:Name="GBEnd"/>
+                </GroupBox>
+                <Button Width="200" Height="20" Content="Сохранить" Click="savech_Click_1" x:Name="savech"  Margin="0 10"/>
+                <Button Width="200" Height="20" x:Name="GoBackBtn" Content="Вернуться назад" Click="GoBackBtn_Click"/>
+
+            </StackPanel>
+        </ScrollViewer>
+        <StackPanel>
+
+        </StackPanel>
+
+    </Grid>
+</Page>

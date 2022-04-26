@@ -1,0 +1,892 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище LicensingModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Amplua">
+          <Key>
+            <PropertyRef Name="Id_Amplua" />
+          </Key>
+          <Property Name="Id_Amplua" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type_Amplua" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BirthCertificate">
+          <Key>
+            <PropertyRef Name="Id_BS" />
+          </Key>
+          <Property Name="Id_BS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumberBirthCertificate" Type="int" Nullable="false" />
+          <Property Name="Id_Player" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id_City" />
+          </Key>
+          <Property Name="Id_City" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameCity" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id_Region" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Coach">
+          <Key>
+            <PropertyRef Name="Id_Coach" />
+          </Key>
+          <Property Name="Id_Coach" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="varchar" MaxLength="50" />
+          <Property Name="Bithday" Type="date" Nullable="false" />
+          <Property Name="Id_Team" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Licensing">
+          <Key>
+            <PropertyRef Name="Id_license" />
+          </Key>
+          <Property Name="Id_license" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumberLicense" Type="varchar" MaxLength="10" />
+          <Property Name="StartLicense" Type="date" />
+          <Property Name="EndLicense" Type="date" />
+          <Property Name="Photo" Type="image" />
+          <Property Name="Id_TypeLicense" Type="int" />
+        </EntityType>
+        <EntityType Name="Passport">
+          <Key>
+            <PropertyRef Name="Id_Passport" />
+          </Key>
+          <Property Name="Id_Passport" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Series" Type="int" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="Id_Player" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Players">
+          <Key>
+            <PropertyRef Name="Id_Player" />
+          </Key>
+          <Property Name="Id_Player" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="varchar" MaxLength="50" />
+          <Property Name="Birthday" Type="date" Nullable="false" />
+          <Property Name="GameNumber" Type="float" />
+          <Property Name="Id_Coach" Type="int" />
+          <Property Name="Id_Amplua" Type="int" />
+          <Property Name="Id_Putter" Type="int" />
+          <Property Name="Id_Team" Type="int" />
+          <Property Name="Image" Type="nvarchar" MaxLength="100" />
+          <Property Name="Id_Passport" Type="int" />
+          <Property Name="Id_BS" Type="int" />
+          <Property Name="Id_Region" Type="int" />
+          <Property Name="Id_License" Type="int" />
+          <Property Name="Id_TypeLicense" Type="int" />
+        </EntityType>
+        <EntityType Name="Putter">
+          <Key>
+            <PropertyRef Name="Id_Putter" />
+          </Key>
+          <Property Name="Id_Putter" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Grip" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="Id_Region" />
+          </Key>
+          <Property Name="Id_Region" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameRegion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id_Role" />
+          </Key>
+          <Property Name="Id_Role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameRole" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id_Team" />
+          </Key>
+          <Property Name="Id_Team" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameTeam" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CityTeam" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="YearOfCreation" Type="date" />
+        </EntityType>
+        <EntityType Name="TypeLictnsing">
+          <Key>
+            <PropertyRef Name="Id_TypeLicense" />
+          </Key>
+          <Property Name="Id_TypeLicense" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeLicense" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id_User" />
+          </Key>
+          <Property Name="Id_User" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Password" Type="int" Nullable="false" />
+          <Property Name="Id_Role" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_City_Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="Id_Region" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="Id_Region" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coach_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Coach" Type="Self.Coach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id_Team" />
+            </Principal>
+            <Dependent Role="Coach">
+              <PropertyRef Name="Id_Team" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Licensing_TypeLictnsing">
+          <End Role="TypeLictnsing" Type="Self.TypeLictnsing" Multiplicity="0..1" />
+          <End Role="Licensing" Type="Self.Licensing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeLictnsing">
+              <PropertyRef Name="Id_TypeLicense" />
+            </Principal>
+            <Dependent Role="Licensing">
+              <PropertyRef Name="Id_TypeLicense" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Amplua">
+          <End Role="Amplua" Type="Self.Amplua" Multiplicity="0..1" />
+          <End Role="Players" Type="Self.Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Amplua">
+              <PropertyRef Name="Id_Amplua" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_Amplua" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_BirthCertificate">
+          <End Role="BirthCertificate" Type="Self.BirthCertificate" Multiplicity="0..1" />
+          <End Role="Players" Type="Self.Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BirthCertificate">
+              <PropertyRef Name="Id_BS" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_BS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Coach">
+          <End Role="Coach" Type="Self.Coach" Multiplicity="0..1" />
+          <End Role="Players" Type="Self.Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coach">
+              <PropertyRef Name="Id_Coach" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_Coach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Licensing">
+          <End Role="Licensing" Type="Self.Licensing" Multiplicity="0..1" />
+          <End Role="Players" Type="Self.Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Licensing">
+              <PropertyRef Name="Id_license" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_License" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Passport">
+          <End Role="Passport" Type="Self.Passport" Multiplicity="0..1" />
+          <End Role="Players" Type="Self.Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Passport">
+              <PropertyRef Name="Id_Passport" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_Passport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Putter">
+          <End Role="Putter" Type="Self.Putter" Multiplicity="0..1" />
+          <End Role="Players" Type="Self.Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Putter">
+              <PropertyRef Name="Id_Putter" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_Putter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="0..1" />
+          <End Role="Players" Type="Self.Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="Id_Region" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_Region" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="Players" Type="Self.Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id_Team" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_Team" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_TypeLictnsing">
+          <End Role="TypeLictnsing" Type="Self.TypeLictnsing" Multiplicity="0..1" />
+          <End Role="Players" Type="Self.Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeLictnsing">
+              <PropertyRef Name="Id_TypeLicense" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_TypeLicense" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id_Role" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="Id_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище LicensingModelContainer">
+          <EntitySet Name="Amplua" EntityType="Self.Amplua" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BirthCertificate" EntityType="Self.BirthCertificate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Coach" EntityType="Self.Coach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Licensing" EntityType="Self.Licensing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Passport" EntityType="Self.Passport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Players" EntityType="Self.Players" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Putter" EntityType="Self.Putter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeLictnsing" EntityType="Self.TypeLictnsing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_City_Region" Association="Self.FK_City_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coach_Team" Association="Self.FK_Coach_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Coach" EntitySet="Coach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Licensing_TypeLictnsing" Association="Self.FK_Licensing_TypeLictnsing">
+            <End Role="TypeLictnsing" EntitySet="TypeLictnsing" />
+            <End Role="Licensing" EntitySet="Licensing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Amplua" Association="Self.FK_Players_Amplua">
+            <End Role="Amplua" EntitySet="Amplua" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_BirthCertificate" Association="Self.FK_Players_BirthCertificate">
+            <End Role="BirthCertificate" EntitySet="BirthCertificate" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Coach" Association="Self.FK_Players_Coach">
+            <End Role="Coach" EntitySet="Coach" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Licensing" Association="Self.FK_Players_Licensing">
+            <End Role="Licensing" EntitySet="Licensing" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Passport" Association="Self.FK_Players_Passport">
+            <End Role="Passport" EntitySet="Passport" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Putter" Association="Self.FK_Players_Putter">
+            <End Role="Putter" EntitySet="Putter" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Region" Association="Self.FK_Players_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Team" Association="Self.FK_Players_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_TypeLictnsing" Association="Self.FK_Players_TypeLictnsing">
+            <End Role="TypeLictnsing" EntitySet="TypeLictnsing" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LicensingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="LicensingEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Amplua" EntityType="LicensingModel.Amplua" />
+          <EntitySet Name="BirthCertificate" EntityType="LicensingModel.BirthCertificate" />
+          <EntitySet Name="City" EntityType="LicensingModel.City" />
+          <EntitySet Name="Coach" EntityType="LicensingModel.Coach" />
+          <EntitySet Name="Passport" EntityType="LicensingModel.Passport" />
+          <EntitySet Name="Putter" EntityType="LicensingModel.Putter" />
+          <EntitySet Name="Region" EntityType="LicensingModel.Region" />
+          <EntitySet Name="Role" EntityType="LicensingModel.Role" />
+          <EntitySet Name="Team" EntityType="LicensingModel.Team" />
+          <EntitySet Name="User" EntityType="LicensingModel.User" />
+          <AssociationSet Name="FK_City_Region" Association="LicensingModel.FK_City_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coach_Team" Association="LicensingModel.FK_Coach_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Coach" EntitySet="Coach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="LicensingModel.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <EntitySet Name="Licensing" EntityType="LicensingModel.Licensing" />
+          <EntitySet Name="Players" EntityType="LicensingModel.Players" />
+          <EntitySet Name="TypeLictnsing" EntityType="LicensingModel.TypeLictnsing" />
+          <AssociationSet Name="FK_Players_Amplua" Association="LicensingModel.FK_Players_Amplua">
+            <End Role="Amplua" EntitySet="Amplua" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_BirthCertificate" Association="LicensingModel.FK_Players_BirthCertificate">
+            <End Role="BirthCertificate" EntitySet="BirthCertificate" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Coach" Association="LicensingModel.FK_Players_Coach">
+            <End Role="Coach" EntitySet="Coach" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Licensing_TypeLictnsing" Association="LicensingModel.FK_Licensing_TypeLictnsing">
+            <End Role="TypeLictnsing" EntitySet="TypeLictnsing" />
+            <End Role="Licensing" EntitySet="Licensing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Licensing" Association="LicensingModel.FK_Players_Licensing">
+            <End Role="Licensing" EntitySet="Licensing" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Passport" Association="LicensingModel.FK_Players_Passport">
+            <End Role="Passport" EntitySet="Passport" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Putter" Association="LicensingModel.FK_Players_Putter">
+            <End Role="Putter" EntitySet="Putter" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Region" Association="LicensingModel.FK_Players_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Team" Association="LicensingModel.FK_Players_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_TypeLictnsing" Association="LicensingModel.FK_Players_TypeLictnsing">
+            <End Role="TypeLictnsing" EntitySet="TypeLictnsing" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Amplua">
+          <Key>
+            <PropertyRef Name="Id_Amplua" />
+          </Key>
+          <Property Name="Id_Amplua" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type_Amplua" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Players" Relationship="LicensingModel.FK_Players_Amplua" FromRole="Amplua" ToRole="Players" />
+        </EntityType>
+        <EntityType Name="BirthCertificate">
+          <Key>
+            <PropertyRef Name="Id_BS" />
+          </Key>
+          <Property Name="Id_BS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumberBirthCertificate" Type="Int32" Nullable="false" />
+          <Property Name="Id_Player" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Players" Relationship="LicensingModel.FK_Players_BirthCertificate" FromRole="BirthCertificate" ToRole="Players" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id_City" />
+          </Key>
+          <Property Name="Id_City" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameCity" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Region" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Region" Relationship="LicensingModel.FK_City_Region" FromRole="City" ToRole="Region" />
+        </EntityType>
+        <EntityType Name="Coach">
+          <Key>
+            <PropertyRef Name="Id_Coach" />
+          </Key>
+          <Property Name="Id_Coach" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Bithday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Id_Team" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Team" Relationship="LicensingModel.FK_Coach_Team" FromRole="Coach" ToRole="Team" />
+          <NavigationProperty Name="Players" Relationship="LicensingModel.FK_Players_Coach" FromRole="Coach" ToRole="Players" />
+        </EntityType>
+        <EntityType Name="Passport">
+          <Key>
+            <PropertyRef Name="Id_Passport" />
+          </Key>
+          <Property Name="Id_Passport" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Series" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="Id_Player" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Players" Relationship="LicensingModel.FK_Players_Passport" FromRole="Passport" ToRole="Players" />
+        </EntityType>
+        <EntityType Name="Putter">
+          <Key>
+            <PropertyRef Name="Id_Putter" />
+          </Key>
+          <Property Name="Id_Putter" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Grip" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Players" Relationship="LicensingModel.FK_Players_Putter" FromRole="Putter" ToRole="Players" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="Id_Region" />
+          </Key>
+          <Property Name="Id_Region" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameRegion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="City" Relationship="LicensingModel.FK_City_Region" FromRole="Region" ToRole="City" />
+          <NavigationProperty Name="Players" Relationship="LicensingModel.FK_Players_Region" FromRole="Region" ToRole="Players" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id_Role" />
+          </Key>
+          <Property Name="Id_Role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameRole" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="LicensingModel.FK_User_Role" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id_Team" />
+          </Key>
+          <Property Name="Id_Team" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameTeam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CityTeam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YearOfCreation" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Coach" Relationship="LicensingModel.FK_Coach_Team" FromRole="Team" ToRole="Coach" />
+          <NavigationProperty Name="Players" Relationship="LicensingModel.FK_Players_Team" FromRole="Team" ToRole="Players" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id_User" />
+          </Key>
+          <Property Name="Id_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="Int32" Nullable="false" />
+          <Property Name="Id_Role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="LicensingModel.FK_User_Role" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <Association Name="FK_City_Region">
+          <End Type="LicensingModel.Region" Role="Region" Multiplicity="1" />
+          <End Type="LicensingModel.City" Role="City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="Id_Region" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="Id_Region" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coach_Team">
+          <End Type="LicensingModel.Team" Role="Team" Multiplicity="1" />
+          <End Type="LicensingModel.Coach" Role="Coach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id_Team" />
+            </Principal>
+            <Dependent Role="Coach">
+              <PropertyRef Name="Id_Team" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Type="LicensingModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="LicensingModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id_Role" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="Id_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Licensing">
+          <Key>
+            <PropertyRef Name="Id_license" />
+          </Key>
+          <Property Name="Id_license" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumberLicense" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="StartLicense" Type="DateTime" Precision="0" />
+          <Property Name="EndLicense" Type="DateTime" Precision="0" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Id_TypeLicense" Type="Int32" />
+          <NavigationProperty Name="TypeLictnsing" Relationship="LicensingModel.FK_Licensing_TypeLictnsing" FromRole="Licensing" ToRole="TypeLictnsing" />
+          <NavigationProperty Name="Players" Relationship="LicensingModel.FK_Players_Licensing" FromRole="Licensing" ToRole="Players" />
+        </EntityType>
+        <EntityType Name="Players">
+          <Key>
+            <PropertyRef Name="Id_Player" />
+          </Key>
+          <Property Name="Id_Player" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="GameNumber" Type="Double" />
+          <Property Name="Id_Coach" Type="Int32" />
+          <Property Name="Id_Amplua" Type="Int32" />
+          <Property Name="Id_Putter" Type="Int32" />
+          <Property Name="Id_Team" Type="Int32" />
+          <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Id_Passport" Type="Int32" />
+          <Property Name="Id_BS" Type="Int32" />
+          <Property Name="Id_Region" Type="Int32" />
+          <Property Name="Id_License" Type="Int32" />
+          <Property Name="Id_TypeLicense" Type="Int32" />
+          <NavigationProperty Name="Amplua" Relationship="LicensingModel.FK_Players_Amplua" FromRole="Players" ToRole="Amplua" />
+          <NavigationProperty Name="BirthCertificate" Relationship="LicensingModel.FK_Players_BirthCertificate" FromRole="Players" ToRole="BirthCertificate" />
+          <NavigationProperty Name="Coach" Relationship="LicensingModel.FK_Players_Coach" FromRole="Players" ToRole="Coach" />
+          <NavigationProperty Name="Licensing" Relationship="LicensingModel.FK_Players_Licensing" FromRole="Players" ToRole="Licensing" />
+          <NavigationProperty Name="Passport" Relationship="LicensingModel.FK_Players_Passport" FromRole="Players" ToRole="Passport" />
+          <NavigationProperty Name="Putter" Relationship="LicensingModel.FK_Players_Putter" FromRole="Players" ToRole="Putter" />
+          <NavigationProperty Name="Region" Relationship="LicensingModel.FK_Players_Region" FromRole="Players" ToRole="Region" />
+          <NavigationProperty Name="Team" Relationship="LicensingModel.FK_Players_Team" FromRole="Players" ToRole="Team" />
+          <NavigationProperty Name="TypeLictnsing" Relationship="LicensingModel.FK_Players_TypeLictnsing" FromRole="Players" ToRole="TypeLictnsing" />
+        </EntityType>
+        <EntityType Name="TypeLictnsing">
+          <Key>
+            <PropertyRef Name="Id_TypeLicense" />
+          </Key>
+          <Property Name="Id_TypeLicense" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeLicense" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Licensing" Relationship="LicensingModel.FK_Licensing_TypeLictnsing" FromRole="TypeLictnsing" ToRole="Licensing" />
+          <NavigationProperty Name="Players" Relationship="LicensingModel.FK_Players_TypeLictnsing" FromRole="TypeLictnsing" ToRole="Players" />
+        </EntityType>
+        <Association Name="FK_Players_Amplua">
+          <End Type="LicensingModel.Amplua" Role="Amplua" Multiplicity="0..1" />
+          <End Type="LicensingModel.Players" Role="Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Amplua">
+              <PropertyRef Name="Id_Amplua" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_Amplua" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_BirthCertificate">
+          <End Type="LicensingModel.BirthCertificate" Role="BirthCertificate" Multiplicity="0..1" />
+          <End Type="LicensingModel.Players" Role="Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BirthCertificate">
+              <PropertyRef Name="Id_BS" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_BS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Coach">
+          <End Type="LicensingModel.Coach" Role="Coach" Multiplicity="0..1" />
+          <End Type="LicensingModel.Players" Role="Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coach">
+              <PropertyRef Name="Id_Coach" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_Coach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Licensing_TypeLictnsing">
+          <End Type="LicensingModel.TypeLictnsing" Role="TypeLictnsing" Multiplicity="0..1" />
+          <End Type="LicensingModel.Licensing" Role="Licensing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeLictnsing">
+              <PropertyRef Name="Id_TypeLicense" />
+            </Principal>
+            <Dependent Role="Licensing">
+              <PropertyRef Name="Id_TypeLicense" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Licensing">
+          <End Type="LicensingModel.Licensing" Role="Licensing" Multiplicity="0..1" />
+          <End Type="LicensingModel.Players" Role="Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Licensing">
+              <PropertyRef Name="Id_license" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_License" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Passport">
+          <End Type="LicensingModel.Passport" Role="Passport" Multiplicity="0..1" />
+          <End Type="LicensingModel.Players" Role="Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Passport">
+              <PropertyRef Name="Id_Passport" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_Passport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Putter">
+          <End Type="LicensingModel.Putter" Role="Putter" Multiplicity="0..1" />
+          <End Type="LicensingModel.Players" Role="Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Putter">
+              <PropertyRef Name="Id_Putter" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_Putter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Region">
+          <End Type="LicensingModel.Region" Role="Region" Multiplicity="0..1" />
+          <End Type="LicensingModel.Players" Role="Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="Id_Region" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_Region" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Team">
+          <End Type="LicensingModel.Team" Role="Team" Multiplicity="0..1" />
+          <End Type="LicensingModel.Players" Role="Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id_Team" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_Team" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_TypeLictnsing">
+          <End Type="LicensingModel.TypeLictnsing" Role="TypeLictnsing" Multiplicity="0..1" />
+          <End Type="LicensingModel.Players" Role="Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeLictnsing">
+              <PropertyRef Name="Id_TypeLicense" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_TypeLicense" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище LicensingModelContainer" CdmEntityContainer="LicensingEntities1">
+          <EntitySetMapping Name="Amplua">
+            <EntityTypeMapping TypeName="LicensingModel.Amplua">
+              <MappingFragment StoreEntitySet="Amplua">
+                <ScalarProperty Name="Type_Amplua" ColumnName="Type_Amplua" />
+                <ScalarProperty Name="Id_Amplua" ColumnName="Id_Amplua" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BirthCertificate">
+            <EntityTypeMapping TypeName="LicensingModel.BirthCertificate">
+              <MappingFragment StoreEntitySet="BirthCertificate">
+                <ScalarProperty Name="Id_Player" ColumnName="Id_Player" />
+                <ScalarProperty Name="NumberBirthCertificate" ColumnName="NumberBirthCertificate" />
+                <ScalarProperty Name="Id_BS" ColumnName="Id_BS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="LicensingModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="Id_Region" ColumnName="Id_Region" />
+                <ScalarProperty Name="NameCity" ColumnName="NameCity" />
+                <ScalarProperty Name="Id_City" ColumnName="Id_City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Coach">
+            <EntityTypeMapping TypeName="LicensingModel.Coach">
+              <MappingFragment StoreEntitySet="Coach">
+                <ScalarProperty Name="Id_Team" ColumnName="Id_Team" />
+                <ScalarProperty Name="Bithday" ColumnName="Bithday" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Id_Coach" ColumnName="Id_Coach" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Passport">
+            <EntityTypeMapping TypeName="LicensingModel.Passport">
+              <MappingFragment StoreEntitySet="Passport">
+                <ScalarProperty Name="Id_Player" ColumnName="Id_Player" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Series" ColumnName="Series" />
+                <ScalarProperty Name="Id_Passport" ColumnName="Id_Passport" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Putter">
+            <EntityTypeMapping TypeName="LicensingModel.Putter">
+              <MappingFragment StoreEntitySet="Putter">
+                <ScalarProperty Name="Grip" ColumnName="Grip" />
+                <ScalarProperty Name="Id_Putter" ColumnName="Id_Putter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Region">
+            <EntityTypeMapping TypeName="LicensingModel.Region">
+              <MappingFragment StoreEntitySet="Region">
+                <ScalarProperty Name="NameRegion" ColumnName="NameRegion" />
+                <ScalarProperty Name="Id_Region" ColumnName="Id_Region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="LicensingModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="NameRole" ColumnName="NameRole" />
+                <ScalarProperty Name="Id_Role" ColumnName="Id_Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Team">
+            <EntityTypeMapping TypeName="LicensingModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="YearOfCreation" ColumnName="YearOfCreation" />
+                <ScalarProperty Name="CityTeam" ColumnName="CityTeam" />
+                <ScalarProperty Name="NameTeam" ColumnName="NameTeam" />
+                <ScalarProperty Name="Id_Team" ColumnName="Id_Team" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="LicensingModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id_Role" ColumnName="Id_Role" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Licensing">
+            <EntityTypeMapping TypeName="LicensingModel.Licensing">
+              <MappingFragment StoreEntitySet="Licensing">
+                <ScalarProperty Name="Id_TypeLicense" ColumnName="Id_TypeLicense" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="EndLicense" ColumnName="EndLicense" />
+                <ScalarProperty Name="StartLicense" ColumnName="StartLicense" />
+                <ScalarProperty Name="NumberLicense" ColumnName="NumberLicense" />
+                <ScalarProperty Name="Id_license" ColumnName="Id_license" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Players">
+            <EntityTypeMapping TypeName="LicensingModel.Players">
+              <MappingFragment StoreEntitySet="Players">
+                <ScalarProperty Name="Id_TypeLicense" ColumnName="Id_TypeLicense" />
+                <ScalarProperty Name="Id_License" ColumnName="Id_License" />
+                <ScalarProperty Name="Id_Region" ColumnName="Id_Region" />
+                <ScalarProperty Name="Id_BS" ColumnName="Id_BS" />
+                <ScalarProperty Name="Id_Passport" ColumnName="Id_Passport" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Id_Team" ColumnName="Id_Team" />
+                <ScalarProperty Name="Id_Putter" ColumnName="Id_Putter" />
+                <ScalarProperty Name="Id_Amplua" ColumnName="Id_Amplua" />
+                <ScalarProperty Name="Id_Coach" ColumnName="Id_Coach" />
+                <ScalarProperty Name="GameNumber" ColumnName="GameNumber" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Id_Player" ColumnName="Id_Player" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeLictnsing">
+            <EntityTypeMapping TypeName="LicensingModel.TypeLictnsing">
+              <MappingFragment StoreEntitySet="TypeLictnsing">
+                <ScalarProperty Name="TypeLicense" ColumnName="TypeLicense" />
+                <ScalarProperty Name="Id_TypeLicense" ColumnName="Id_TypeLicense" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
