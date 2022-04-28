@@ -49,11 +49,12 @@ namespace licensing
             {
                 case 1:
                     MessageBox.Show("Вы вошли как администратор");
-                        PageLoad.MainFrame.Navigate(new PagePlayers());
+                        PageLoad.MainFrame.Navigate(new PagePlayers(1));
                     break;
                 default:
                     MessageBox.Show("Вы вышли как простой смертный");
-                    break;
+                        PageLoad.MainFrame.Navigate(new PagePlayers());
+                        break;
             }
             }
         }

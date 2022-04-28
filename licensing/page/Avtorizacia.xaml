@@ -9,15 +9,16 @@
       Title="Avtorizacia">
 
     <Grid>
-        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <GroupBox Height="200" Width="200" Header="Введите логин и пароль">
+       
+            <GroupBox  Height="200" Width="200" Header="Введите логин и пароль" >
                 <StackPanel VerticalAlignment="Center">
                     <TextBox x:Name="logtxt" Width="auto" Height="25px" Margin=" 0 0 0 10"/>
                     <PasswordBox  x:Name="PasswordTxt" Width="auto" Height="25px" Margin=" 0 0 0 10"/>
-                    <Button x:Name="AvtorizBtn" Content="Авторизироваться" Margin="5" Click="AvtorizBtn_Click" IsDefault="True" />
-                    <Button x:Name="RegisBtn" Content="Зарегистрироватся" Margin="5 0 5 0" Click="RegisBtn_Click"/>
+                    <Button x:Name="AvtorizBtn" Style="{StaticResource  MaterialDesignRaisedLightButton}" Content="Авторизироваться" Margin="5" Click="AvtorizBtn_Click" IsDefault="True" />
+                    <Button x:Name="RegisBtn" Style="{StaticResource  MaterialDesignRaisedDarkButton}"  Content="Зарегистрироватся" Margin="5 0 5 0" Click="RegisBtn_Click"/>
                 </StackPanel>
             </GroupBox>
-        </WrapPanel>
+      
+        
     </Grid>
 </Page>

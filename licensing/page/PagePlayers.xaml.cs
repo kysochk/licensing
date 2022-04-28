@@ -25,11 +25,20 @@ namespace licensing
 
         VM vm = new VM();
 
-        //List<Players> ls;
-        List<Players> ll;
+       
         List<Players> players = BaseConnect.BaseModel.Players.ToList();
         List<int> id_play;
 
+        public PagePlayers(int i)
+        {
+            InitializeComponent();
+            load();
+            
+            id_play = new List<int>();
+            FiltCB.ItemsSource = BaseConnect.BaseModel.Region.ToList();
+            FiltCB.DisplayMemberPath = "NameRegion";
+            FiltCB.SelectedValuePath = "Id_Region";
+        }
         public PagePlayers()
         {
 
@@ -39,7 +48,7 @@ namespace licensing
             FiltCB.ItemsSource = BaseConnect.BaseModel.Region.ToList();
             FiltCB.DisplayMemberPath = "NameRegion";
             FiltCB.SelectedValuePath = "Id_Region";
-           // DataContext = ls;
+          
 
 
 
@@ -85,13 +94,6 @@ namespace licensing
 
 
         
-        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            PlayList.ItemsSource = BaseConnect.BaseModel.Players.Where(x => x.Name == SearchBar.Text||x.Surname==SearchBar.Text).ToList();
-            //ls = ls.Where(x => x.Coach.Contains(SearchBar.Text)).ToList();
-            //PlayList.ItemsSource = ls;
-
-        }
         
 
         private void FiltCB_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
@@ -164,6 +166,16 @@ namespace licensing
         private void RadioButton_Click_1(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SearchBar_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            PlayList.ItemsSource = BaseConnect.BaseModel.Players.Where(x => x.Name == SearchBar.Text || x.Surname == SearchBar.Text).ToList();
         }
     }
 }

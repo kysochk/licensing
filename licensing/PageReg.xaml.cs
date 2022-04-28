@@ -24,5 +24,21 @@ namespace licensing
         {
             InitializeComponent();
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            PageLoad.MainFrame.GoBack();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            User us = new User() { Login = txtLogin.Text, Password = txtPass.Password.GetHashCode(), Id_Role = 2 };
+            BaseConnect.BaseModel.User.Add(us);
+            BaseConnect.BaseModel.SaveChanges();
+            Players pl = new Players() { Surname = txtSureName.Text, Name = txtName.Text, Patronymic = PatronymicTxt.Text, Id_Player = us.Id_User, Birthday = (DateTime)dtDr.SelectedDate };
+            BaseConnect.BaseModel.Players.Add(pl);
+            BaseConnect.BaseModel.SaveChanges();
+            MessageBox.Show("Данные успешно зарегистрированны");
+        }
     }
 }

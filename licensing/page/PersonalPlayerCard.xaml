@@ -59,8 +59,8 @@
 
 
                     <StackPanel Margin="487,0,33.8,0">
-                        <Button x:Name="Red" HorizontalAlignment="Right"  Content="Редактировать" Uid="{Binding Id_Player}" Click="Red_Click" Visibility="{Binding visiblebtn}" Margin="0 0 0 5" Width="88"  />
-                        <Button x:Name="Back" HorizontalAlignment="Right"  Content="Вернутся назад" Uid="{Binding Id_Player}" Click="Back_Click_1" Visibility="{Binding visiblebtn}" Width="88"  />
+                        <Button x:Name="Red" HorizontalAlignment="Right"  Content="Редактировать" Uid="{Binding Id_Player}" Click="Red_Click" Visibility="{Binding visiblebtn}" Margin="-51,0,0,5" Width="139"  />
+                        <Button x:Name="Back" HorizontalAlignment="Right"  Content="Вернутся назад" Uid="{Binding Id_Player}" Click="Back_Click_1" Visibility="{Binding visiblebtn}" Width="139" Margin="-51,0,0,0"  />
                     </StackPanel>
                 </StackPanel>
 

@@ -24,7 +24,7 @@ namespace licensing
         {
             InitializeComponent();
             BaseConnect.BaseModel = new LicensingEntities1();
-            FrameMain.Navigate(new PagePlayers());
+            FrameMain.Navigate(new Avtorizacia());
             PageLoad.MainFrame = FrameMain;
         }
 

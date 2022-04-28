@@ -6,11 +6,40 @@
       xmlns:local="clr-namespace:licensing"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageReg">
+      Title="Регистрация">
 
     <Grid>
-        
-        
-        
+        <ScrollViewer>
+            <GroupBox Header="Введите данные для регистрации" >
+                <StackPanel>
+                    <GroupBox Header="Логин">
+                        <TextBox x:Name="txtLogin"/>
+                    </GroupBox>
+                    <GroupBox Header="Пароль">
+                        <PasswordBox x:Name="txtPass"/>
+                    </GroupBox>
+                    <GroupBox Header="Фамилия">
+                        <TextBox x:Name="txtSureName"/>
+                    </GroupBox>
+                    <GroupBox Header="Имя">
+                        <TextBox x:Name="txtName"/>
+                    </GroupBox>
+                    <GroupBox Header="Отчество">
+                        <TextBox x:Name="PatronymicTxt"/>
+                    </GroupBox>
+                    <GroupBox Header="Введите дату рождения">
+                        <DatePicker Name="dtDr" />
+                    </GroupBox>
+                  
+                    
+                    <Button  Click="Button_Click">
+
+                    </Button>
+                    <Button Content="Назад" Name="btnBack" Click="btnBack_Click"/>
+                </StackPanel>
+            </GroupBox>
+        </ScrollViewer>
+
+
     </Grid>
 </Page>
