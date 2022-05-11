@@ -29,7 +29,7 @@ namespace licensing
         {
             PageLoad.MainFrame.GoBack();
         }
-
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             User us = new User() { Login = txtLogin.Text, Password = txtPass.Password.GetHashCode(), Id_Role = 2 };
@@ -39,6 +39,7 @@ namespace licensing
             BaseConnect.BaseModel.Players.Add(pl);
             BaseConnect.BaseModel.SaveChanges();
             MessageBox.Show("Данные успешно зарегистрированны");
+          
         }
     }
 }

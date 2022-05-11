@@ -7,18 +7,22 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Avtorizacia">
-
-    <Grid>
+  
+    <Grid >
        
-            <GroupBox  Height="200" Width="200" Header="Введите логин и пароль" >
-                <StackPanel VerticalAlignment="Center">
-                    <TextBox x:Name="logtxt" Width="auto" Height="25px" Margin=" 0 0 0 10"/>
-                    <PasswordBox  x:Name="PasswordTxt" Width="auto" Height="25px" Margin=" 0 0 0 10"/>
-                    <Button x:Name="AvtorizBtn" Style="{StaticResource  MaterialDesignRaisedLightButton}" Content="Авторизироваться" Margin="5" Click="AvtorizBtn_Click" IsDefault="True" />
-                    <Button x:Name="RegisBtn" Style="{StaticResource  MaterialDesignRaisedDarkButton}"  Content="Зарегистрироватся" Margin="5 0 5 0" Click="RegisBtn_Click"/>
+        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Border >
+               
+                <StackPanel VerticalAlignment="Center" Height="295" Width="295">
+                    <TextBlock Text="Введите логин и пароль" FontSize="20"   FontWeight="Bold" HorizontalAlignment="Center" Margin="0 5 0 0" />
+                    <TextBox x:Name="logtxt" Width="auto" Height="25px"  Margin="5 20 5 0"/>
+                    <PasswordBox  x:Name="PasswordTxt" Width="auto" Height="25px" Margin="5 20 5 0"/>
+                    <Button x:Name="AvtorizBtn" Style="{StaticResource  MaterialDesignRaisedLightButton}" Content="Авторизироваться" Margin="5 20 5 0" Click="AvtorizBtn_Click" IsDefault="True" />
+                    <Button x:Name="RegisBtn" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Content="Зарегистрироватся" Margin="5 20 5 0" Click="RegisBtn_Click"/>
                 </StackPanel>
-            </GroupBox>
+            </Border>
+        </WrapPanel>
       
-        
+
     </Grid>
 </Page>

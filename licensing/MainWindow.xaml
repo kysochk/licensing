@@ -10,14 +10,14 @@
      TextElement.FontSize="13"
      TextOptions.TextFormattingMode="Ideal"
      TextOptions.TextRenderingMode="Auto"
-     Background="{DynamicResource MaterialDesignPaper}"
+     Background="{DynamicResource  MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         Icon="resurses/logo.ico"
-        Title="Главная страница" Height="600" Width="950">
-   
+        Title="Главная страница" Height="600" Width="950" ResizeMode="NoResize">
+
     <Grid>
-        
-       
+
+      
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
             <RowDefinition Height="5*"/>
@@ -30,8 +30,11 @@
 
         <DockPanel Grid.ColumnSpan="2" LastChildFill="True">
             <Image Source="resurses\logo3.png" DockPanel.Dock="Left"/>
-            <TextBlock Text="Лицензирование Игроков России" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize ="30" />
+            <TextBlock Text="Лицензирование Игроков России" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize ="40" />
         </DockPanel>
+
+
+   
         <Frame x:Name="FrameMain" Grid.Row="1" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>

@@ -15,9 +15,9 @@
             <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="White"/>
             <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#c51d27"/>
             <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="White"/>
-             
-            <SolidColorBrush x:Key="SecondaryAccentBrush" Color="Azure"/>
-            <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="Black"/>
+            <SolidColorBrush x:Key="SecondaryAccentBrush" Color="Aqua"/>
+            <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="Red"/>
+        
         </ResourceDictionary>
     </Application.Resources>
 </Application>

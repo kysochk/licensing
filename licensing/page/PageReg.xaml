@@ -30,12 +30,12 @@
                     <GroupBox Header="Введите дату рождения">
                         <DatePicker Name="dtDr" />
                     </GroupBox>
-                  
-                    
-                    <Button  Click="Button_Click">
+
+
+                    <Button Content="Зарегистрироваться" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="Button_Click">
 
                     </Button>
-                    <Button Content="Назад" Name="btnBack" Click="btnBack_Click"/>
+                    <Button Content="Назад" Name="btnBack" Style="{StaticResource MaterialDesignRaisedDarkButton}" Click="btnBack_Click"/>
                 </StackPanel>
             </GroupBox>
         </ScrollViewer>

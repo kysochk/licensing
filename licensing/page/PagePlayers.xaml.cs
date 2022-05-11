@@ -38,6 +38,8 @@ namespace licensing
             FiltCB.ItemsSource = BaseConnect.BaseModel.Region.ToList();
             FiltCB.DisplayMemberPath = "NameRegion";
             FiltCB.SelectedValuePath = "Id_Region";
+            Filll.Visibility = Visibility.Visible;
+            
         }
         public PagePlayers()
         {
@@ -48,7 +50,7 @@ namespace licensing
             FiltCB.ItemsSource = BaseConnect.BaseModel.Region.ToList();
             FiltCB.DisplayMemberPath = "NameRegion";
             FiltCB.SelectedValuePath = "Id_Region";
-          
+         
 
 
 
@@ -123,7 +125,7 @@ namespace licensing
             }
             catch
             {
-            //    MessageBox.Show("Эта запись уже была удалена!\nОбновите страницу", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+           
             }
         }
 

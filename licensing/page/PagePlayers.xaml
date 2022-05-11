@@ -12,7 +12,7 @@
 
         <DataTemplate x:Key="PlayLs">
 
-            <Border BorderBrush="#EFC7FF" BorderThickness="1px" >
+            <Border BorderBrush="#c51d27" BorderThickness="1px" >
 
                 <StackPanel Orientation="Horizontal" Height="140" Width="950" Background="{Binding RedColor}" Uid="{Binding ID}" MouseDown="StackPanel_MouseDown">
 
@@ -58,9 +58,9 @@
 
                     </StackPanel>
 
-                    <StackPanel>
-                        <Button x:Name="OpenPPC" Margin="300 25 0 0"  Width="160" Height="35" Content="Открыть карточку" Uid="{Binding Id_Player}" Click="OpenPPC_Click"  />
-                        <Button x:Name="DeletePlayer" Margin="0 10 0 0" Width="160" Height="35" HorizontalAlignment="Right" Content="Удалить игрока" Uid="{Binding Id_Player}" Click="DeletePlayer_Click"  Visibility="{Binding visiblebtn}"  />
+                    <StackPanel x:Name="Admnbtn">
+                        <Button x:Name="OpenPPC"  Style="{StaticResource  MaterialDesignRaisedLightButton}" Margin="300 25 0 0"  Width="160" Height="35" Content="Открыть карточку" Uid="{Binding Id_Player}" Click="OpenPPC_Click"  />
+                        <Button x:Name="DeletePlayer" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="0 10 0 0" Width="160" Height="35" HorizontalAlignment="Right" Content="Удалить игрока" Uid="{Binding Id_Player}" Click="DeletePlayer_Click"  Visibility="{Binding visiblebtn}"  />
                     </StackPanel>
                 </StackPanel>
 
@@ -85,28 +85,26 @@
         <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="0,0,0,9"/>
         <StackPanel Orientation="Horizontal" Grid.Column="1">
 
-            <TextBox x:Name="SearchBar" Width="225"  BorderBrush="#EFC7FF"  TextChanged="SearchBar_TextChanged_1" Margin="30 10 5 10"/>
-            
-            <GroupBox Header="Фильтрация по региону" Margin="30 0 0 0"  Width="193">
-                <ComboBox  x:Name="FiltCB" SelectionChanged="FiltCB_SelectionChanged_1" Height="30" Margin="0,0,-1.8,-1.2"/>
+            <TextBox x:Name="SearchBar" Width="225"  BorderBrush="#EFC7FF"  TextChanged="SearchBar_TextChanged_1" Margin="25 10 5 10"/>
+
+            <GroupBox x:Name="Filll"  Header="Фильтрация по региону"  Margin="25 0 0 0"  Width="193" Visibility="Collapsed" >
+                <ComboBox  Text="Все записи"  x:Name="FiltCB" SelectionChanged="FiltCB_SelectionChanged_1" Margin="0,0,0,-15.2" Visibility="{Binding visible}">
+                 
+                </ComboBox>
             </GroupBox>
-            <GroupBox Header="Сортировка"  Margin="30 0 0 0" Width="218">
+            <GroupBox  Header="Сортировка"  Margin="25 0 0 0" Width="223">
                 <StackPanel  Margin="0,-8,0,-8.2" Height="25" VerticalAlignment="Top" Width="208">
                     <RadioButton Content ="По дате рождения" Click="RadioButton_Click" Margin="0,0,81.4,0" Uid="DR" Width="125" HorizontalAlignment="Right" Height="21"/>
-                    <RadioButton Content ="По имени" Click="RadioButton_Click" Uid="name" Margin="125,-18,0,0" Height="18" Checked="RadioButton_Checked" HorizontalAlignment="Left" Width="83"/>
-
-
-
-
-
+                    <RadioButton Content ="По имени" Click="RadioButton_Click"  Uid="name" Margin="125,-18,0,0" Height="18" Checked="RadioButton_Checked" HorizontalAlignment="Left" Width="83"/>
                 </StackPanel>
             </GroupBox>
-            <Button x:Name="NewPlayer" Margin="30 0 0 0" Click="NewPlayer_Click" Content="Добавить игрока" Height="60" VerticalAlignment="Bottom" Width="167"/>
+            <Button x:Name="NewPlayer" Margin="25 0 0 0" Click="NewPlayer_Click" Content="Добавить игрока" Height="60" VerticalAlignment="Bottom" Width="167"/>
 
 
         </StackPanel>
 
 
-        <ListBox  x:Name="PlayList" ItemTemplate ="{StaticResource PlayLs}" Grid.Column="0"  Grid.ColumnSpan="2"  SelectedItem="{Binding getidP}" SelectionMode="Extended" SelectionChanged="PlayList_SelectionChanged" Margin="0,0,0,0.2" Grid.Row="1" />
+        <ListBox  x:Name="PlayList" ItemTemplate ="{StaticResource PlayLs}" Grid.Column="0"  Grid.ColumnSpan="2"  SelectedItem="{Binding getidP}" SelectionMode="Extended" SelectionChanged="PlayList_SelectionChanged" Margin="0,0,0.4,0" Grid.Row="1" Grid.RowSpan="2" />
+      
     </Grid>
 </Page>

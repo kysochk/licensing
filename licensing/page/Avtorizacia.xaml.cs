@@ -41,7 +41,7 @@ namespace licensing
             User UserOb = BaseConnect.BaseModel.User.FirstOrDefault(u => u.Login == logtxt.Text && u.Password == pass);
             if (UserOb==null)
             {
-                MessageBox.Show("такого людя не наблюдаю в БД");
+                MessageBox.Show("Данные введены не верно");
             }
             else
             { 
@@ -52,7 +52,7 @@ namespace licensing
                         PageLoad.MainFrame.Navigate(new PagePlayers(1));
                     break;
                 default:
-                    MessageBox.Show("Вы вышли как простой смертный");
+                    MessageBox.Show("Вы вышли как тренер. Обратите внимание, ваш функционал ограничен");
                         PageLoad.MainFrame.Navigate(new PagePlayers());
                         break;
             }
