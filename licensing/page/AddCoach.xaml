@@ -5,10 +5,57 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:licensing"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="950"
       Title="AddCoach">
 
     <Grid>
-        
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Center" Grid.RowSpan="2" Width="618">
+
+               
+                <GroupBox  Header="Фамилия" HorizontalAlignment="Center"  Margin="0,0,-0.4,0">
+                    <TextBox Width="400"  x:Name="Surname" Text="{Binding Surname}"  TextChanged="Surname_TextChanged"/>
+                </GroupBox>
+                <GroupBox Header="Имя"  HorizontalAlignment="Center" Margin="100,0,99.6,0" Width="418">
+                    <TextBox Width="400" x:Name="Name" Text="{Binding Name}" TextChanged="Name_TextChanged"/>
+                </GroupBox>
+                <GroupBox Header="Отчество" Margin="100,0,99.6,0">
+                    <TextBox Width="400" x:Name="Patronymic" Text="{Binding Patronymic}" TextChanged="Patronymic_TextChanged"/>
+                </GroupBox>
+                <GroupBox Header="Введите дату рождения" Margin="100,0,99.6,0">
+                    <DatePicker Width="400" x:Name="GBBir" Text="{Binding Birthday}"/>
+                </GroupBox>
+                                     
+                <GroupBox Header="Команда" Margin="100,0,99.6,0">
+                    <ComboBox Width="400" x:Name="TeamCB" SelectionChanged="TeamCB_SelectionChanged" Height="30">
+                        <ComboBoxItem Content="Сборная Нижегородской области"/>
+                        <ComboBoxItem Content="Нижегородец"/>
+                    </ComboBox>
+                </GroupBox>
+                <GroupBox Header="Регион" Margin="100,0,99.6,0">
+                    <ComboBox Width="400" x:Name="RegCB" SelectionChanged="RegCB_SelectionChanged">
+                        <ComboBoxItem Content="Нижегородская область"/>
+                        <ComboBoxItem Content="Архангельская область"/>
+                    </ComboBox>
+                </GroupBox>
+                <GroupBox Header="Населенный пункт" Margin="100,0,99.6,0">
+                    <ComboBox Width="400" x:Name="CitCB" SelectionChanged="CitCB_SelectionChanged">
+                        <ComboBoxItem Content="Нижний Новгород"/>
+                        <ComboBoxItem Content="Павлово"/>
+                        <ComboBoxItem Content="Архангельск"/>
+                    </ComboBox>
+                </GroupBox>
+                           
+                
+               
+                <Button Height="30" Content="Сохранить" Click="savech_Click" x:Name="savech"  Margin="100,10,99.6,10" Style="{StaticResource MaterialDesignRaisedLightButton}"/>
+                <Button Height="30" x:Name="GoBackBtn" Content="Вернуться назад" Click="GoBackBtn_Click"  Style="{StaticResource  MaterialDesignRaisedDarkButton}" Margin="100,0,99.6,0"/>
+
+            </StackPanel>
+        </ScrollViewer>
+        <StackPanel>
+
+        </StackPanel>
+
     </Grid>
 </Page>

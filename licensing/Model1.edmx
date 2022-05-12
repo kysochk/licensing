@@ -38,6 +38,9 @@
           <Property Name="Patronymic" Type="varchar" MaxLength="50" />
           <Property Name="Bithday" Type="date" Nullable="false" />
           <Property Name="Id_Team" Type="int" Nullable="false" />
+          <Property Name="Id_Region" Type="int" />
+          <Property Name="Id_City" Type="int" />
+          <Property Name="Image" Type="nchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Licensing">
           <Key>
@@ -136,6 +139,30 @@
               <PropertyRef Name="Id_Region" />
             </Principal>
             <Dependent Role="City">
+              <PropertyRef Name="Id_Region" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coach_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Coach" Type="Self.Coach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id_City" />
+            </Principal>
+            <Dependent Role="Coach">
+              <PropertyRef Name="Id_City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coach_Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="0..1" />
+          <End Role="Coach" Type="Self.Coach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="Id_Region" />
+            </Principal>
+            <Dependent Role="Coach">
               <PropertyRef Name="Id_Region" />
             </Dependent>
           </ReferentialConstraint>
@@ -302,6 +329,14 @@
             <End Role="Region" EntitySet="Region" />
             <End Role="City" EntitySet="City" />
           </AssociationSet>
+          <AssociationSet Name="FK_Coach_City" Association="Self.FK_Coach_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Coach" EntitySet="Coach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coach_Region" Association="Self.FK_Coach_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Coach" EntitySet="Coach" />
+          </AssociationSet>
           <AssociationSet Name="FK_Coach_Team" Association="Self.FK_Coach_Team">
             <End Role="Team" EntitySet="Team" />
             <End Role="Coach" EntitySet="Coach" />
@@ -359,7 +394,6 @@
           <EntitySet Name="Amplua" EntityType="LicensingModel.Amplua" />
           <EntitySet Name="BirthCertificate" EntityType="LicensingModel.BirthCertificate" />
           <EntitySet Name="City" EntityType="LicensingModel.City" />
-          <EntitySet Name="Coach" EntityType="LicensingModel.Coach" />
           <EntitySet Name="Licensing" EntityType="LicensingModel.Licensing" />
           <EntitySet Name="Passport" EntityType="LicensingModel.Passport" />
           <EntitySet Name="Players" EntityType="LicensingModel.Players" />
@@ -383,14 +417,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_Players_City" Association="LicensingModel.FK_Players_City">
             <End Role="City" EntitySet="City" />
-            <End Role="Players" EntitySet="Players" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Coach_Team" Association="LicensingModel.FK_Coach_Team">
-            <End Role="Team" EntitySet="Team" />
-            <End Role="Coach" EntitySet="Coach" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Players_Coach" Association="LicensingModel.FK_Players_Coach">
-            <End Role="Coach" EntitySet="Coach" />
             <End Role="Players" EntitySet="Players" />
           </AssociationSet>
           <AssociationSet Name="FK_Players_Licensing" Association="LicensingModel.FK_Players_Licensing">
@@ -421,6 +447,23 @@
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
+          <EntitySet Name="Coach" EntityType="LicensingModel.Coach" />
+          <AssociationSet Name="FK_Coach_City" Association="LicensingModel.FK_Coach_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Coach" EntitySet="Coach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coach_Region" Association="LicensingModel.FK_Coach_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Coach" EntitySet="Coach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coach_Team" Association="LicensingModel.FK_Coach_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Coach" EntitySet="Coach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Coach" Association="LicensingModel.FK_Players_Coach">
+            <End Role="Coach" EntitySet="Coach" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Amplua">
           <Key>
@@ -448,19 +491,7 @@
           <Property Name="Id_Region" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Region" Relationship="LicensingModel.FK_City_Region" FromRole="City" ToRole="Region" />
           <NavigationProperty Name="Players" Relationship="LicensingModel.FK_Players_City" FromRole="City" ToRole="Players" />
-        </EntityType>
-        <EntityType Name="Coach">
-          <Key>
-            <PropertyRef Name="Id_Coach" />
-          </Key>
-          <Property Name="Id_Coach" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Bithday" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Id_Team" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Team" Relationship="LicensingModel.FK_Coach_Team" FromRole="Coach" ToRole="Team" />
-          <NavigationProperty Name="Players" Relationship="LicensingModel.FK_Players_Coach" FromRole="Coach" ToRole="Players" />
+          <NavigationProperty Name="Coach" Relationship="LicensingModel.FK_Coach_City" FromRole="City" ToRole="Coach" />
         </EntityType>
         <EntityType Name="Licensing">
           <Key>
@@ -508,13 +539,13 @@
           <NavigationProperty Name="Amplua" Relationship="LicensingModel.FK_Players_Amplua" FromRole="Players" ToRole="Amplua" />
           <NavigationProperty Name="BirthCertificate" Relationship="LicensingModel.FK_Players_BirthCertificate" FromRole="Players" ToRole="BirthCertificate" />
           <NavigationProperty Name="City" Relationship="LicensingModel.FK_Players_City" FromRole="Players" ToRole="City" />
-          <NavigationProperty Name="Coach" Relationship="LicensingModel.FK_Players_Coach" FromRole="Players" ToRole="Coach" />
           <NavigationProperty Name="Licensing" Relationship="LicensingModel.FK_Players_Licensing" FromRole="Players" ToRole="Licensing" />
           <NavigationProperty Name="Passport" Relationship="LicensingModel.FK_Players_Passport" FromRole="Players" ToRole="Passport" />
           <NavigationProperty Name="Putter" Relationship="LicensingModel.FK_Players_Putter" FromRole="Players" ToRole="Putter" />
           <NavigationProperty Name="Region" Relationship="LicensingModel.FK_Players_Region" FromRole="Players" ToRole="Region" />
           <NavigationProperty Name="Team" Relationship="LicensingModel.FK_Players_Team" FromRole="Players" ToRole="Team" />
           <NavigationProperty Name="TypeLictnsing" Relationship="LicensingModel.FK_Players_TypeLictnsing" FromRole="Players" ToRole="TypeLictnsing" />
+          <NavigationProperty Name="Coach" Relationship="LicensingModel.FK_Players_Coach" FromRole="Players" ToRole="Coach" />
         </EntityType>
         <EntityType Name="Putter">
           <Key>
@@ -532,6 +563,7 @@
           <Property Name="NameRegion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="City" Relationship="LicensingModel.FK_City_Region" FromRole="Region" ToRole="City" />
           <NavigationProperty Name="Players" Relationship="LicensingModel.FK_Players_Region" FromRole="Region" ToRole="Players" />
+          <NavigationProperty Name="Coach" Relationship="LicensingModel.FK_Coach_Region" FromRole="Region" ToRole="Coach" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -550,8 +582,8 @@
           <Property Name="NameTeam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CityTeam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="YearOfCreation" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Coach" Relationship="LicensingModel.FK_Coach_Team" FromRole="Team" ToRole="Coach" />
           <NavigationProperty Name="Players" Relationship="LicensingModel.FK_Players_Team" FromRole="Team" ToRole="Players" />
+          <NavigationProperty Name="Coach" Relationship="LicensingModel.FK_Coach_Team" FromRole="Team" ToRole="Coach" />
         </EntityType>
         <EntityType Name="TypeLictnsing">
           <Key>
@@ -616,30 +648,6 @@
             </Principal>
             <Dependent Role="Players">
               <PropertyRef Name="Id_City" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Coach_Team">
-          <End Type="LicensingModel.Team" Role="Team" Multiplicity="1" />
-          <End Type="LicensingModel.Coach" Role="Coach" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Team">
-              <PropertyRef Name="Id_Team" />
-            </Principal>
-            <Dependent Role="Coach">
-              <PropertyRef Name="Id_Team" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Players_Coach">
-          <End Type="LicensingModel.Coach" Role="Coach" Multiplicity="0..1" />
-          <End Type="LicensingModel.Players" Role="Players" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Coach">
-              <PropertyRef Name="Id_Coach" />
-            </Principal>
-            <Dependent Role="Players">
-              <PropertyRef Name="Id_Coach" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -727,6 +735,72 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Coach">
+          <Key>
+            <PropertyRef Name="Id_Coach" />
+          </Key>
+          <Property Name="Id_Coach" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Bithday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Id_Team" Type="Int32" Nullable="false" />
+          <Property Name="Id_Region" Type="Int32" />
+          <Property Name="Id_City" Type="Int32" />
+          <Property Name="Image" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="City" Relationship="LicensingModel.FK_Coach_City" FromRole="Coach" ToRole="City" />
+          <NavigationProperty Name="Region" Relationship="LicensingModel.FK_Coach_Region" FromRole="Coach" ToRole="Region" />
+          <NavigationProperty Name="Team" Relationship="LicensingModel.FK_Coach_Team" FromRole="Coach" ToRole="Team" />
+          <NavigationProperty Name="Players" Relationship="LicensingModel.FK_Players_Coach" FromRole="Coach" ToRole="Players" />
+        </EntityType>
+        <Association Name="FK_Coach_City">
+          <End Type="LicensingModel.City" Role="City" Multiplicity="0..1" />
+          <End Type="LicensingModel.Coach" Role="Coach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id_City" />
+            </Principal>
+            <Dependent Role="Coach">
+              <PropertyRef Name="Id_City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coach_Region">
+          <End Type="LicensingModel.Region" Role="Region" Multiplicity="0..1" />
+          <End Type="LicensingModel.Coach" Role="Coach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="Id_Region" />
+            </Principal>
+            <Dependent Role="Coach">
+              <PropertyRef Name="Id_Region" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coach_Team">
+          <End Type="LicensingModel.Team" Role="Team" Multiplicity="1" />
+          <End Type="LicensingModel.Coach" Role="Coach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id_Team" />
+            </Principal>
+            <Dependent Role="Coach">
+              <PropertyRef Name="Id_Team" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Coach">
+          <End Type="LicensingModel.Coach" Role="Coach" Multiplicity="0..1" />
+          <End Type="LicensingModel.Players" Role="Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coach">
+              <PropertyRef Name="Id_Coach" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Id_Coach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -756,18 +830,6 @@
                 <ScalarProperty Name="Id_Region" ColumnName="Id_Region" />
                 <ScalarProperty Name="NameCity" ColumnName="NameCity" />
                 <ScalarProperty Name="Id_City" ColumnName="Id_City" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Coach">
-            <EntityTypeMapping TypeName="LicensingModel.Coach">
-              <MappingFragment StoreEntitySet="Coach">
-                <ScalarProperty Name="Id_Team" ColumnName="Id_Team" />
-                <ScalarProperty Name="Bithday" ColumnName="Bithday" />
-                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Id_Coach" ColumnName="Id_Coach" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -866,6 +928,21 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Coach">
+            <EntityTypeMapping TypeName="LicensingModel.Coach">
+              <MappingFragment StoreEntitySet="Coach">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Id_City" ColumnName="Id_City" />
+                <ScalarProperty Name="Id_Region" ColumnName="Id_Region" />
+                <ScalarProperty Name="Id_Team" ColumnName="Id_Team" />
+                <ScalarProperty Name="Bithday" ColumnName="Bithday" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Id_Coach" ColumnName="Id_Coach" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

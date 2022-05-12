@@ -158,7 +158,7 @@ namespace licensing
 
         private void GoBackBtn_Click(object sender, RoutedEventArgs e)
         {
-            PageLoad.MainFrame.Navigate(new PagePlayers());
+            PageLoad.MainFrame.GoBack();
         }
 
         private void savech_Click_1(object sender, RoutedEventArgs e)

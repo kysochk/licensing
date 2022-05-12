@@ -35,12 +35,12 @@ namespace licensing
         public virtual Amplua Amplua { get; set; }
         public virtual BirthCertificate BirthCertificate { get; set; }
         public virtual City City { get; set; }
-        public virtual Coach Coach { get; set; }
         public virtual Licensing Licensing { get; set; }
         public virtual Passport Passport { get; set; }
         public virtual Putter Putter { get; set; }
         public virtual Region Region { get; set; }
         public virtual Team Team { get; set; }
         public virtual TypeLictnsing TypeLictnsing { get; set; }
+        public virtual Coach Coach { get; set; }
     }
 }

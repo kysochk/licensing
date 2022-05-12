@@ -10,10 +10,13 @@
      TextElement.FontSize="13"
      TextOptions.TextFormattingMode="Ideal"
      TextOptions.TextRenderingMode="Auto"
-     Background="{DynamicResource  MaterialDesignPaper}"
+    
      FontFamily="{DynamicResource MaterialDesignFont}"
         Icon="resurses/logo.ico"
         Title="Главная страница" Height="600" Width="950" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="resurses/fon.png"/>
+    </Window.Background>
 
     <Grid>
 

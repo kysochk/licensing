@@ -18,6 +18,7 @@ namespace licensing
         public City()
         {
             this.Players = new HashSet<Players>();
+            this.Coach = new HashSet<Coach>();
         }
     
         public int Id_City { get; set; }
@@ -27,5 +28,7 @@ namespace licensing
         public virtual Region Region { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Players> Players { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Coach> Coach { get; set; }
     }
 }

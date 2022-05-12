@@ -72,6 +72,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PageCoach.xaml.cs">
+      <DependentUpon>PageCoach.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageMenu.xaml.cs">
+      <DependentUpon>PageMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="page\AddCoach.xaml.cs">
       <DependentUpon>AddCoach.xaml</DependentUpon>
     </Compile>
@@ -125,6 +131,9 @@
     <Compile Include="Passport.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="page\PersonalCoachCard.xaml.cs">
+      <DependentUpon>PersonalCoachCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Players.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -148,6 +157,14 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="class\VM.cs" />
+    <Page Include="PageCoach.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="page\AddCoach.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -181,6 +198,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="page\PersonalPlayerCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="page\PersonalCoachCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -250,6 +271,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="resurses\Bulbash.jpg" />
+    <Resource Include="resurses\fon.png" />
+    <Resource Include="resurses\_pole_margaritki__belyy__lepestki.jpg" />
     <Resource Include="resurses\51693-limon_vektor_risunok_dolki.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

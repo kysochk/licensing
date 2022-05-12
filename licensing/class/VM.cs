@@ -15,9 +15,11 @@ namespace licensing
         public VM()
         {
             play = BaseConnect.BaseModel.Players.ToList();
+            co = BaseConnect.BaseModel.Coach.ToList();
         }
        
         public Players gid;
+        public Coach gidc;
         public Players getidP
         {
             get
@@ -29,7 +31,17 @@ namespace licensing
                 gid = value;
             }
         }
+        public Coach getidC
+        {
+            get
+            {
+                return gidc;
+            }
+            set
+            {
+                gidc = value;
+            }
+        }
 
-       
     }
 }

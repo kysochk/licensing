@@ -49,7 +49,7 @@ namespace licensing
             {
                 case 1:
                     MessageBox.Show("Вы вошли как администратор");
-                        PageLoad.MainFrame.Navigate(new PagePlayers(1));
+                        PageLoad.MainFrame.Navigate(new PageMenu());
                     break;
                 default:
                     MessageBox.Show("Вы вышли как тренер. Обратите внимание, ваш функционал ограничен");

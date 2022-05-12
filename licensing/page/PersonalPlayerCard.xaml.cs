@@ -154,7 +154,7 @@ namespace licensing
 
         private void Back_Click_1(object sender, RoutedEventArgs e)
         {
-            PageLoad.MainFrame.Navigate(new PagePlayers());
+            PageLoad.MainFrame.GoBack();
         }
 
         private void Red_Click(object sender, RoutedEventArgs e)
