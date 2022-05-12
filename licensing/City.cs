@@ -14,10 +14,18 @@ namespace licensing
     
     public partial class City
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public City()
+        {
+            this.Players = new HashSet<Players>();
+        }
+    
         public int Id_City { get; set; }
         public string NameCity { get; set; }
         public int Id_Region { get; set; }
     
         public virtual Region Region { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Players> Players { get; set; }
     }
 }

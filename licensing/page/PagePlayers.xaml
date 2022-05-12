@@ -51,7 +51,7 @@
                             </TextBlock>
                             <TextBlock TextAlignment="Left">
                             <Run FontWeight="Bold" Text="Срок действия:"/>
-                        <Run  x:Name="End" Text="{Binding Licensing.EndLicense}"/>
+                        <Run  x:Name="End" Text="{Binding Licensing.EndLicense, StringFormat={}{0:d}}"/>
                             </TextBlock>
 
                         </StackPanel>
@@ -85,26 +85,26 @@
         <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="0,0,0,9"/>
         <StackPanel Orientation="Horizontal" Grid.Column="1">
 
-            <TextBox x:Name="SearchBar" Width="225"  BorderBrush="#EFC7FF"  TextChanged="SearchBar_TextChanged_1" Margin="25 10 5 10"/>
+            <TextBox x:Name="SearchBar" Width="174"  BorderBrush="#EFC7FF"  TextChanged="SearchBar_TextChanged_1" Margin="10 10 5 10"/>
 
-            <GroupBox x:Name="Filll"  Header="Фильтрация по региону"  Margin="25 0 0 0"  Width="193" Visibility="Collapsed" >
-                <ComboBox  Text="Все записи"  x:Name="FiltCB" SelectionChanged="FiltCB_SelectionChanged_1" Margin="0,0,0,-15.2" Visibility="{Binding visible}">
-                 
+            <GroupBox x:Name="Filll"  Header="Фильтрация по региону"  Margin="10 0 0 0"  Width="183"  >
+                <ComboBox   x:Name="FiltCB" SelectionChanged="FiltCB_SelectionChanged_1" Margin="0,-10,0,-7.2" Height="26">
+
                 </ComboBox>
             </GroupBox>
-            <GroupBox  Header="Сортировка"  Margin="25 0 0 0" Width="223">
+            <GroupBox  Header="Сортировка"  Margin="10 0 0 0" Width="218">
                 <StackPanel  Margin="0,-8,0,-8.2" Height="25" VerticalAlignment="Top" Width="208">
                     <RadioButton Content ="По дате рождения" Click="RadioButton_Click" Margin="0,0,81.4,0" Uid="DR" Width="125" HorizontalAlignment="Right" Height="21"/>
                     <RadioButton Content ="По имени" Click="RadioButton_Click"  Uid="name" Margin="125,-18,0,0" Height="18" Checked="RadioButton_Checked" HorizontalAlignment="Left" Width="83"/>
                 </StackPanel>
             </GroupBox>
-            <Button x:Name="NewPlayer" Margin="25 0 0 0" Click="NewPlayer_Click" Content="Добавить игрока" Height="60" VerticalAlignment="Bottom" Width="167"/>
-
+            <Button x:Name="NewPlayer" Margin="10 0 0 0" Click="NewPlayer_Click" Content="Добавить игрока" Height="60" VerticalAlignment="Bottom" Width="150"/>
+            <Button x:Name="NewCoach" Margin="10 0 0 0" Click="NewCoach_Click" Content="Добавить тренера" Height="60" VerticalAlignment="Bottom" Width="154"/>
 
         </StackPanel>
 
 
         <ListBox  x:Name="PlayList" ItemTemplate ="{StaticResource PlayLs}" Grid.Column="0"  Grid.ColumnSpan="2"  SelectedItem="{Binding getidP}" SelectionMode="Extended" SelectionChanged="PlayList_SelectionChanged" Margin="0,0,0.4,0" Grid.Row="1" Grid.RowSpan="2" />
-      
+
     </Grid>
 </Page>

@@ -30,9 +30,11 @@ namespace licensing
         public Nullable<int> Id_Region { get; set; }
         public Nullable<int> Id_License { get; set; }
         public Nullable<int> Id_TypeLicense { get; set; }
+        public Nullable<int> Id_City { get; set; }
     
         public virtual Amplua Amplua { get; set; }
         public virtual BirthCertificate BirthCertificate { get; set; }
+        public virtual City City { get; set; }
         public virtual Coach Coach { get; set; }
         public virtual Licensing Licensing { get; set; }
         public virtual Passport Passport { get; set; }

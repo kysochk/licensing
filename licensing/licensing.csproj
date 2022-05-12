@@ -72,6 +72,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="page\AddCoach.xaml.cs">
+      <DependentUpon>AddCoach.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Amplua.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -102,7 +105,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="page\PageReg.xaml.cs">
+    <Compile Include="PageReg.xaml.cs">
       <DependentUpon>PageReg.xaml</DependentUpon>
     </Compile>
     <Compile Include="page\AddPlayer.xaml.cs">
@@ -145,7 +148,11 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="class\VM.cs" />
-    <Page Include="page\PageReg.xaml">
+    <Page Include="page\AddCoach.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageReg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

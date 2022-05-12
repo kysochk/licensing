@@ -24,27 +24,34 @@ namespace licensing
     {
         string img = "\\null\\null";
         int ident = -1;
-  
+
 
         public AddPlayer(int id)
         {
             InitializeComponent();
             loadT();
 
-            
+
             Players play = BaseConnect.BaseModel.Players.FirstOrDefault(x => x.Id_Player == id);
+            Licensing lic = BaseConnect.BaseModel.Licensing.FirstOrDefault(x => x.Id_license == id);
+       
             TypeAmp.SelectedIndex = Convert.ToInt32(play.Id_Amplua - 1);
             TypePut.SelectedIndex = Convert.ToInt32(play.Id_Putter - 1);
             CoachCB.SelectedIndex = Convert.ToInt32(play.Id_Coach - 1);
             TeamCB.SelectedIndex = Convert.ToInt32(play.Id_Team - 1);
             RegCB.SelectedIndex = Convert.ToInt32(play.Id_Region - 1);
             TypeLic.SelectedIndex = Convert.ToInt32(play.Id_TypeLicense - 1);
+            
+
+
+        
 
             DataContext = play;
+          
             ident = id;
             addImg.Content = "Обновить изображение";
             savech.Content = "Обновить данные";
-            
+
             img = play.Image;
         }
 
@@ -54,18 +61,18 @@ namespace licensing
 
             InitializeComponent();
             loadT();
-          
+
 
         }
         public void loadT()
         {
             List<Players> vrTP = BaseConnect.BaseModel.Players.ToList();
-     
+            List<Licensing> vrTL = BaseConnect.BaseModel.Licensing.ToList();
             vrTP.RemoveAt(0);
+            vrTL.RemoveAt(0);
 
-           
         }
-      
+
 
         private void ArticylTB_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -148,7 +155,7 @@ namespace licensing
         {
 
         }
-     
+
         private void GoBackBtn_Click(object sender, RoutedEventArgs e)
         {
             PageLoad.MainFrame.Navigate(new PagePlayers());
@@ -162,10 +169,11 @@ namespace licensing
             int idte = TeamCB.SelectedIndex + 1;
             int idreg = RegCB.SelectedIndex + 1;
             int idtyplic = TypeLic.SelectedIndex + 1;
-            
+            int cit = CitCB.SelectedIndex + 1;
+
             try
             {
-               
+
                 Players playersob = new Players()
                 {
 
@@ -180,24 +188,26 @@ namespace licensing
                     Id_Coach = idco,
                     Id_Team = idte,
                     Id_Region = idreg,
-                    Id_TypeLicense = idtyplic
+                    Id_TypeLicense = idtyplic,
+                    Id_City = cit
 
 
 
                 };
                 Licensing licob = new Licensing()
                 {
+                  
                     NumberLicense = NumberLicenseTB.Text,
                     StartLicense = GBStart.DisplayDate,
                     EndLicense = GBEnd.DisplayDate,
                     Id_TypeLicense = idtyplic
                 };
                 BaseConnect.BaseModel.Players.Add(playersob);
-               BaseConnect.BaseModel.Licensing.Add(licob);
+                BaseConnect.BaseModel.Licensing.Add(licob);
                 BaseConnect.BaseModel.SaveChanges();
-            
-                    MessageBox.Show("Данные успешно добавлены");
-                
+
+                MessageBox.Show("Данные успешно добавлены");
+
 
             }
             catch

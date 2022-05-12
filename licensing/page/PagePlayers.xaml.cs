@@ -27,7 +27,9 @@ namespace licensing
 
        
         List<Players> players = BaseConnect.BaseModel.Players.ToList();
+       
         List<int> id_play;
+        
 
         public PagePlayers(int i)
         {
@@ -38,7 +40,7 @@ namespace licensing
             FiltCB.ItemsSource = BaseConnect.BaseModel.Region.ToList();
             FiltCB.DisplayMemberPath = "NameRegion";
             FiltCB.SelectedValuePath = "Id_Region";
-            Filll.Visibility = Visibility.Visible;
+        
             
         }
         public PagePlayers()
@@ -55,6 +57,8 @@ namespace licensing
 
 
         }
+
+       
         public void load()
         {
 
@@ -178,6 +182,11 @@ namespace licensing
         private void SearchBar_TextChanged_1(object sender, TextChangedEventArgs e)
         {
             PlayList.ItemsSource = BaseConnect.BaseModel.Players.Where(x => x.Name == SearchBar.Text || x.Surname == SearchBar.Text).ToList();
+        }
+
+        private void NewCoach_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

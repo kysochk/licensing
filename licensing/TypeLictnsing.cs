@@ -17,15 +17,12 @@ namespace licensing
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TypeLictnsing()
         {
-            this.Licensing = new HashSet<Licensing>();
             this.Players = new HashSet<Players>();
         }
     
         public int Id_TypeLicense { get; set; }
         public string TypeLicense { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Licensing> Licensing { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Players> Players { get; set; }
     }

@@ -29,14 +29,14 @@ namespace licensing
         public virtual DbSet<BirthCertificate> BirthCertificate { get; set; }
         public virtual DbSet<City> City { get; set; }
         public virtual DbSet<Coach> Coach { get; set; }
+        public virtual DbSet<Licensing> Licensing { get; set; }
         public virtual DbSet<Passport> Passport { get; set; }
+        public virtual DbSet<Players> Players { get; set; }
         public virtual DbSet<Putter> Putter { get; set; }
         public virtual DbSet<Region> Region { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Team> Team { get; set; }
-        public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<Licensing> Licensing { get; set; }
-        public virtual DbSet<Players> Players { get; set; }
         public virtual DbSet<TypeLictnsing> TypeLictnsing { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }

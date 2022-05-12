@@ -11,10 +11,6 @@
 
     <ScrollViewer>
         <Grid>
-
-
-
-
             <Border BorderBrush="#0d4785" BorderThickness="1px" Width="900" Margin="17,25,16.6,136" >
 
                 <StackPanel  Orientation="Horizontal"  Margin="9.2,39.2,8.8,183.2">
@@ -22,22 +18,13 @@
                         <Image x:Name="ImagePlayer" Source="{Binding Image}" Width="131" Margin="4,10,4.2,9.8"/>
                     </Border>
                     <StackPanel Margin="10,38,0,10.4" Orientation="Vertical" Width="729">
-
-
-
-
                         <StackPanel Orientation="Vertical" Margin="0,0,-0.2,0">
-
                             <TextBlock  TextAlignment="Left" FontSize="16" FontWeight="Bold" Margin="0,0,309.4,0" >
                            <Run x:Name="Surname"  Text="{Binding Surname}"/>
                             <Run x:Name="Name" Text="{Binding Name}"/>
                             <Run x:Name="Patronymic" Text="{Binding Patronymic}"/>
                             </TextBlock>
-
                         </StackPanel>
-
-
-
 
                         <StackPanel Margin="0,5,315.8,0">
                             <TextBlock TextAlignment="Left">
@@ -52,12 +39,16 @@
                             <Run Text=" "/>
                             <Run Text=" "/>
                             <Run  x:Name="Team" FontSize="14" Text="{Binding Team.NameTeam}"/></TextBlock>
-                            <TextBlock TextAlignment="Left">
-                            <Run FontWeight="Bold" FontSize="14" Text="Регон:"/>
+                            
+                            <TextBlock TextAlignment="Left" >
+                            <Run FontWeight="Bold" FontSize="14" Text="Тренер:"/>
                             <Run Text=" "/>
                             <Run Text=" "/>
-                            <Run Text=" "/>
-                            <Run  x:Name="Region" FontSize="14" Text="{Binding Region.NameRegion}"/></TextBlock>
+                            <Run FontSize="14" x:Name="Coach" Text="{Binding Coach.Surname}"/>
+                            <Run  x:Name="Coach1" FontSize="14" Text="{Binding Coach.Name}"/>
+                                <Run FontSize="14" x:Name="Coach2" Text="{Binding Coach.Patronymic}"/>
+                            </TextBlock>
+
                             <TextBlock TextAlignment="Left">
                             <Run FontWeight="Bold" FontSize="14" Text="Амплуа:"/>
                             <Run Text=" "/>
@@ -76,27 +67,41 @@
                             <Run Text=" "/>
                             <Run Text=" "/>
                             <Run  x:Name="GameNumber" FontSize="14" Text="{Binding GameNumber}"/></TextBlock>
+                            <TextBlock TextAlignment="Left">
+                            <Run FontWeight="Bold" FontSize="14" Text="Регон:"/>
+                            <Run Text=" "/>
+                            <Run Text=" "/>
+                            <Run Text=" "/>
+                            <Run  x:Name="Region" FontSize="14" Text="{Binding Region.NameRegion}"/></TextBlock>
+                            <TextBlock TextAlignment="Left">
+                            <Run FontWeight="Bold" FontSize="14" Text="Населенный пункт:"/>
+                            <Run Text=" "/>
+                            <Run Text=" "/>
+                            <Run Text=" "/>
+                            <Run  x:Name="City" FontSize="14" Text="{Binding City.NameCity}"/>
+                            </TextBlock>
                         </StackPanel>
 
-                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center"  Margin="329,-120,34.2,0" Width="212" Height="45">
-                            <TextBlock TextAlignment="Left">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center"  Margin="406,-120,44.8,0" Width="278" Height="70">
+                            <TextBlock TextAlignment="Left" Margin="0,0,-0.2,0">
+                            <Run FontWeight="Bold" FontSize="14" Text="Номер лицензии:"/>
+                            <Run Text=" "/>
+                            <Run  x:Name="NumbLic" FontSize="14" Text="{Binding Licensing.NumberLicense}"/>
+                            </TextBlock>
+                            <TextBlock TextAlignment="Left" Margin="0,0,-0.2,0">
                             <Run FontWeight="Bold" FontSize="14" Text="Вид лицензии:"/>
                             <Run Text=" "/>
-                            <Run Text=" "/>
-                            <Run Text=" "/>
-                            <Run  x:Name="TypeLicense" FontSize="14" Text="{Binding TypeLictnsing.TypeLicense}"/></TextBlock>
-                            <TextBlock TextAlignment="Left" Margin="0,0,10,0" Height="18">
+                         
+                            <Run  x:Name="TypeLicense" FontSize="14" Text="{Binding TypeLictnsing.TypeLicense}"/>
+                            </TextBlock>
+                            <TextBlock TextAlignment="Left" Height="20" Margin="0,0,97.4,0">
                             <Run FontWeight="Bold" FontSize="14" Text="Срок действия:"/>
                             <Run Text=" "/>
-                            <Run Text=" "/>
-                            <Run Text=" "/>
+                        
                             <Run  x:Name="EndLicense" FontSize="14" Text="{Binding Licensing.EndLicense}"/>
                             </TextBlock>
 
                         </StackPanel>
-
-
-
                         <Button x:Name="Red" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignRaisedLightButton}" Content="Редактировать" Uid="{Binding Id_Player}" Click="Red_Click" Visibility="{Binding visiblebtn}" Margin="-151,45,0.8,5" Width="879"  />
                         <Button x:Name="Back" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignRaisedDarkButton}" Content="Вернутся назад" Uid="{Binding Id_Player}" Click="Back_Click_1" Visibility="{Binding visiblebtn}" Width="879" Margin="-151,0,0.8,0"  />
 
@@ -113,42 +118,15 @@
             <Border BorderBrush="#0d4785" BorderThickness="1px" Width="900" Margin="17,25,16.6,136" >
 
                 <StackPanel  Orientation="Horizontal"  Margin="9.2,39.2,8.8,183.2">
-                    <Border BorderBrush="#0d4785" Margin="0,38,0,113" Width="141">
-                        <Image x:Name="ImagePlayer1" Source="{Binding Image}" Width="131" Margin="4,10,4.2,9.8"/>
+                    <Border BorderBrush="#0d4785" Margin="0,38,0,107" Width="141">
+                        <Image x:Name="ImagePlayer1" Source="{Binding Image}" Width="131" Margin="5,10,4.8,29.2"/>
                     </Border>
-                    <StackPanel Margin="10,38,0,10.4" Orientation="Vertical" Width="729">
-
-
-
-
+                    <StackPanel Margin="10,38,0,83" Orientation="Vertical" Width="729">
                         <StackPanel Orientation="Vertical" Margin="0,0,-0.2,0">
 
                             <TextBlock  TextAlignment="Left" FontSize="16" FontWeight="Bold" Margin="0,0,309.4,0" ><Run x:Name="Surname1"  Text="{Binding Surname}"/><Run Text=" "/><Run x:Name="Name1" Text="{Binding Name}"/><Run Text=" "/><Run x:Name="Patronymic1" Text="{Binding Patronymic}"/></TextBlock>
 
                         </StackPanel>
-
-
-
-
-                        <StackPanel Margin="0,5,315.8,0">
-                            <TextBlock TextAlignment="Left"><Run FontWeight="Bold" FontSize="14"  Text="Дата рождения:"/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run  x:Name="Birthday1" FontSize="14" Text="{Binding Birthday, StringFormat=\{0:d\}, ValidatesOnExceptions=True}"/></TextBlock>
-
-                            <TextBlock TextAlignment="Left" ><Run FontWeight="Bold" FontSize="14" Text="Команда:"/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run  x:Name="Team1" FontSize="14" Text="{Binding Team.NameTeam}"/></TextBlock>
-                            <TextBlock TextAlignment="Left"><Run FontWeight="Bold" FontSize="14" Text="Регон:"/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run  x:Name="Region1" FontSize="14" Text="{Binding Region.NameRegion}"/></TextBlock>
-                            <TextBlock TextAlignment="Left"><Run FontWeight="Bold" FontSize="14" Text="Амплуа:"/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run  x:Name="Amplua1" FontSize="14" Text="{Binding Amplua.Type_Amplua}"/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run FontWeight="Bold" FontSize="14" Text="Хват клюшки:"/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run x:Name="Putter1" FontSize="14" Text="{Binding Putter.Grip}"/></TextBlock>
-                            <TextBlock TextAlignment="Left"><Run FontWeight="Bold" FontSize="14" Text="Игровой номер:"/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run  x:Name="GameNumber1" FontSize="14" Text="{Binding GameNumber}"/></TextBlock>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center"  Margin="329,-120,34.2,0" Width="212" Height="45">
-                            <TextBlock TextAlignment="Left"><Run FontWeight="Bold" FontSize="14" Text="Вид лицензии:"/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run  x:Name="TypeLicense1" FontSize="14" Text="{Binding TypeLictnsing.TypeLicense}"/></TextBlock>
-                            <TextBlock TextAlignment="Left" Margin="0,0,10,0" Height="18"><Run FontWeight="Bold" FontSize="14" Text="Срок действия:"/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run  x:Name="EndLicense1" FontSize="14" Text="{Binding Licensing.EndLicense}"/></TextBlock>
-
-                        </StackPanel>
-
-
-
-
-
                     </StackPanel>
 
 

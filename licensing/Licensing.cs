@@ -27,7 +27,6 @@ namespace licensing
         public byte[] Photo { get; set; }
         public Nullable<int> Id_TypeLicense { get; set; }
     
-        public virtual TypeLictnsing TypeLictnsing { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Players> Players { get; set; }
     }

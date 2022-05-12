@@ -34,7 +34,7 @@ namespace licensing
         {
             InitializeComponent();
             Players players = BaseConnect.BaseModel.Players.FirstOrDefault(x => x.Id_Player == i);
-
+            Licensing lic = BaseConnect.BaseModel.Licensing.FirstOrDefault(x => x.Id_license == i);
             DataContext = players;
             index = i;
         }

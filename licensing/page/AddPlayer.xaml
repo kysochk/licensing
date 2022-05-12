@@ -31,7 +31,7 @@
                     <TextBox Width="400" x:Name="Patronymic" Text="{Binding Patronymic}" TextChanged="Patronymic_TextChanged"/>
                 </GroupBox>
                 <GroupBox Header="Введите дату рождения" Margin="100,0,99.6,0">
-                    <DatePicker Width="400" x:Name="GBBir"/>
+                    <DatePicker Width="400" x:Name="GBBir" Text="{Binding Birthday}"/>
                 </GroupBox>
                 <GroupBox Header="Игровой номер" Margin="100,0,99.6,0">
                     <TextBox Width="400" x:Name="GameNumber" Text="{Binding GameNumber}" TextChanged="GameNumber_TextChanged"/>
@@ -71,6 +71,13 @@
 
                     </ComboBox>
                 </GroupBox>
+                <GroupBox Header="Населенный пункт" Margin="100,0,99.6,0">
+                    <ComboBox Width="400" x:Name="CitCB" SelectionChanged="RegCB_SelectionChanged">
+                        <ComboBoxItem Content="Нижний Новгород"/>
+                        <ComboBoxItem Content="Павлово"/>
+                        <ComboBoxItem Content="Архангельск"/>
+                    </ComboBox>
+                </GroupBox>
                 <GroupBox Header="Регион" Margin="100,0,99.6,0">
                     <ComboBox Width="400" x:Name="RegCB" SelectionChanged="RegCB_SelectionChanged">
                         <ComboBoxItem Content="Нижегородская область"/>
@@ -78,7 +85,7 @@
                     </ComboBox>
                 </GroupBox>
                 <GroupBox Header="Номер лицензии" Margin="100,0,99.6,0" >
-                    <TextBox x:Name="NumberLicenseTB"  Width="400" Margin="1,0,1.4,-0.4"/>
+                    <TextBox x:Name="NumberLicenseTB" Text="{Binding Licensing.NumberLicence}"  Width="400" Margin="1,0,1.4,-0.4"/>
                 </GroupBox>
                 <GroupBox Header="Вид лицензии"  Height="77" Margin="100,0,99.6,0">
                     <ComboBox Width="400" x:Name="TypeLic" SelectionChanged="TypeLic_SelectionChanged" Height="30" Margin="0,-17,0,0.2">
