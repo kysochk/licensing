@@ -5,10 +5,73 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:licensing"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="PersonalCoachCard">
+      d:DesignHeight="600" d:DesignWidth="950"
+      Title="Персональная карточка тренера">
+    <ScrollViewer>
+        <Grid>
+            <Border BorderBrush="#0d4785" BorderThickness="1px"  Margin="17,25,16.6,136" >
 
-    <Grid>
-        
-    </Grid>
+                <StackPanel  Orientation="Horizontal"  Margin="9.2,39.2,8.8,183.2">
+                    <Border BorderBrush="#0d4785" Margin="0,38,0,93.6" Width="141">
+                        <Image x:Name="ImagePlayer" Source="{Binding Image}" Width="131" Margin="4,10,4.2,9.8"/>
+                    </Border>
+                    <StackPanel Margin="10,38,0,10.4" Orientation="Vertical" Width="729">
+                        <StackPanel Orientation="Vertical" Margin="0,0,-0.2,0">
+                            <TextBlock  TextAlignment="Left" FontSize="16" FontWeight="Bold" Margin="0,0,309.4,0" >
+                           <Run x:Name="Surname"  Text="{Binding Surname}"/>
+                            <Run x:Name="Name" Text="{Binding Name}"/>
+                            <Run x:Name="Patronymic" Text="{Binding Patronymic}"/>
+                            </TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Margin="0,5,315.8,0">
+                            <TextBlock TextAlignment="Left">
+                            <Run FontWeight="Bold" FontSize="14"  Text="Дата рождения:"/>
+                            <Run Text=" "/><Run Text=" "/>
+                            <Run Text=" "/>
+                            <Run  x:Name="Birthday" FontSize="14" Text="{Binding Birthday, StringFormat=\{0:d\}, ValidatesOnExceptions=True}"/></TextBlock>
+
+                            <TextBlock TextAlignment="Left" >
+                            <Run FontWeight="Bold" FontSize="14" Text="Команда:"/>
+                            <Run Text=" "/>
+                            <Run Text=" "/>
+                            <Run Text=" "/>
+                            <Run  x:Name="Team" FontSize="14" Text="{Binding Team.NameTeam}"/></TextBlock>
+
+                           
+                            
+                           
+                            <TextBlock TextAlignment="Left">
+                            <Run FontWeight="Bold" FontSize="14" Text="Регон:"/>
+                            <Run Text=" "/>
+                            <Run Text=" "/>
+                            <Run Text=" "/>
+                            <Run  x:Name="Region" FontSize="14" Text="{Binding Region.NameRegion}"/></TextBlock>
+                            <TextBlock TextAlignment="Left">
+                            <Run FontWeight="Bold" FontSize="14" Text="Населенный пункт:"/>
+                            <Run Text=" "/>
+                            <Run Text=" "/>
+                            <Run Text=" "/>
+                            <Run  x:Name="City" FontSize="14" Text="{Binding City.NameCity}"/>
+                            </TextBlock>
+                        </StackPanel>
+
+                        <Button x:Name="Red" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignRaisedLightButton}" Content="Редактировать" Uid="{Binding Id_Coach}" Click="Red_Click"  Margin="-151,45,0.8,5" Width="879"  />
+                        <Button x:Name="Back" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignRaisedDarkButton}" Content="Вернутся назад" Uid="{Binding Id_Coach}" Click="Back_Click"  Width="879" Margin="-151,0,0.8,0"  />
+
+                    </StackPanel>
+
+
+                </StackPanel>
+
+            </Border>
+
+           
+            
+
+
+
+        </Grid>
+
+    </ScrollViewer>
 </Page>

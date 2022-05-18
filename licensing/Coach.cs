@@ -29,10 +29,12 @@ namespace licensing
         public Nullable<int> Id_Region { get; set; }
         public Nullable<int> Id_City { get; set; }
         public string Image { get; set; }
+        public int Id_User { get; set; }
     
         public virtual City City { get; set; }
         public virtual Region Region { get; set; }
         public virtual Team Team { get; set; }
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Players> Players { get; set; }
     }

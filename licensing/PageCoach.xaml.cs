@@ -41,7 +41,7 @@ namespace licensing
         {
             Button btn = (Button)sender;
             int id = Convert.ToInt32(btn.Uid);
-            PageLoad.MainFrame.Navigate(new PersonalPlayerCard(id));
+           PageLoad.MainFrame.Navigate(new PersonalCoachCard(id));
         }
 
         
@@ -105,7 +105,7 @@ namespace licensing
 
         private void BackMenu_Click(object sender, RoutedEventArgs e)
         {
-            PageLoad.MainFrame.GoBack();
+            PageLoad.MainFrame.Navigate(new PageMenu());
         }
     }
 }

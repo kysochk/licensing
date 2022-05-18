@@ -13,5 +13,6 @@
         <TextBlock Text="Выберите категорию:" FontSize="50" HorizontalAlignment="Center"/>
         <Button Style="{StaticResource  MaterialDesignRaisedLightButton}" Content="Игроки" FontSize="30" x:Name="PagePlaers" Margin="0 -50 0 0"   Click="PagePlaers_Click" Width="200" Height="50" RenderTransformOrigin="0.5,0.504" />
         <Button Style="{StaticResource MaterialDesignRaisedDarkButton}" Content="Тренера" FontSize="30" x:Name="PageCoach" Click="PageCoach_Click" Margin="0 70 0 0"  Width="200" Height="50" />
+        <Button HorizontalAlignment="Center" Foreground="White" Width="950" Content="Вернуться назад" Style="{StaticResource MaterialDesignFlatButton}" x:Name="BackMenu" Click="BackMenu_Click" Height="43" Margin="0,0,0.4,0" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Bottom" />
     </Grid>
 </Page>

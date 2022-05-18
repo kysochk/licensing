@@ -53,7 +53,7 @@
                     </StackPanel>
 
                     <StackPanel x:Name="Admnbtn">
-                        <Button x:Name="OpenPPC"  Style="{StaticResource  MaterialDesignRaisedLightButton}" Margin="300 25 0 0"  Width="160" Height="35" Content="Открыть карточку" Uid="{Binding Id_Player}" Click="OpenPPC_Click"  />
+                        <Button x:Name="OpenPPC"  Style="{StaticResource  MaterialDesignRaisedLightButton}" Margin="300 25 0 0"  Width="160" Height="35" Content="Открыть карточку" Uid="{Binding Id_Coach}" Click="OpenPPC_Click"  />
                         <Button x:Name="DeleteCoach" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="0 10 0 0" Width="160" Height="35" HorizontalAlignment="Right" Content="Удалить тренера" Uid="{Binding Id_Coach}" Click="DeleteCoach_Click"/>
                     </StackPanel>
                 </StackPanel>
@@ -96,7 +96,8 @@
         </StackPanel>
 
 
-        <ListBox  x:Name="CoachList" ItemTemplate ="{StaticResource CoaLs}" Grid.Column="0"  Grid.ColumnSpan="2"  SelectedItem="{Binding getidC}" SelectionMode="Extended" SelectionChanged="PlayList_SelectionChanged" Margin="0,0,0.4,0.2" Grid.Row="1" />
-        <Button HorizontalAlignment="Center" Width="950" Content="Вернуться назад" Style="{StaticResource MaterialDesignFlatButton}" x:Name="BackMenu" Click="BackMenu_Click" Grid.ColumnSpan="2" Height="Auto" Margin="0,487,0.4,0" Grid.Row="1" Grid.RowSpan="2" />
+        <ListBox  x:Name="CoachList" ItemTemplate ="{StaticResource CoaLs}" Grid.Column="0"  Grid.ColumnSpan="2"  SelectedItem="{Binding getidC}" SelectionMode="Extended" SelectionChanged="PlayList_SelectionChanged" Margin="0,0,0.4,6.2" Grid.Row="1" />
+        <StackPanel/>
+        <Button HorizontalAlignment="Center" Foreground="White" Width="950" Content="Вернуться назад" Style="{StaticResource MaterialDesignFlatButton}" x:Name="BackMenu" Click="BackMenu_Click" Height="43" Margin="0,0,0.4,0" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Bottom" />
     </Grid>
 </Page>

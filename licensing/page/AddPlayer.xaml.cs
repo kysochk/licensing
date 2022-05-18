@@ -33,7 +33,9 @@ namespace licensing
 
 
             Players play = BaseConnect.BaseModel.Players.FirstOrDefault(x => x.Id_Player == id);
-            Licensing lic = BaseConnect.BaseModel.Licensing.FirstOrDefault(x => x.Id_license == id);
+          int k = (int)play.Id_License;
+          
+          Licensing lic = BaseConnect.BaseModel.Licensing.FirstOrDefault(x => x.Id_license == k);
        
             TypeAmp.SelectedIndex = Convert.ToInt32(play.Id_Amplua - 1);
             TypePut.SelectedIndex = Convert.ToInt32(play.Id_Putter - 1);
@@ -41,13 +43,20 @@ namespace licensing
             TeamCB.SelectedIndex = Convert.ToInt32(play.Id_Team - 1);
             RegCB.SelectedIndex = Convert.ToInt32(play.Id_Region - 1);
             TypeLic.SelectedIndex = Convert.ToInt32(play.Id_TypeLicense - 1);
-            
+            NumberLicenseTB.Text = lic.NumberLicense;
+            GBBir.DisplayDate = play.Birthday;
+           GBStart.DisplayDate = (DateTime)lic.StartLicense;
+           GBEnd.DisplayDate = (DateTime)lic.EndLicense;
+            CitCB.SelectedIndex = Convert.ToInt32(play.Id_City - 1);
+            Surname.Text = play.Surname;
+
 
 
         
 
             DataContext = play;
-          
+           // DataContext = lic;
+
             ident = id;
             addImg.Content = "Обновить изображение";
             savech.Content = "Обновить данные";
@@ -158,7 +167,7 @@ namespace licensing
 
         private void GoBackBtn_Click(object sender, RoutedEventArgs e)
         {
-            PageLoad.MainFrame.GoBack();
+            PageLoad.MainFrame.Navigate(new PagePlayers());
         }
 
         private void savech_Click_1(object sender, RoutedEventArgs e)
@@ -170,6 +179,7 @@ namespace licensing
             int idreg = RegCB.SelectedIndex + 1;
             int idtyplic = TypeLic.SelectedIndex + 1;
             int cit = CitCB.SelectedIndex + 1;
+          
 
             try
             {
@@ -190,13 +200,13 @@ namespace licensing
                     Id_Region = idreg,
                     Id_TypeLicense = idtyplic,
                     Id_City = cit
-
+                    
 
 
                 };
                 Licensing licob = new Licensing()
                 {
-                  
+         
                     NumberLicense = NumberLicenseTB.Text,
                     StartLicense = GBStart.DisplayDate,
                     EndLicense = GBEnd.DisplayDate,

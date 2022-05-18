@@ -22,7 +22,7 @@ namespace licensing
     {
         int index = 0;
 
-        //Players player;
+        
         public PersonalPlayerCard()
         {
             InitializeComponent();

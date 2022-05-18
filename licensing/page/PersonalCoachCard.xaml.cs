@@ -20,9 +20,37 @@ namespace licensing
     /// </summary>
     public partial class PersonalCoachCard : Page
     {
+        int index = 0;
         public PersonalCoachCard()
         {
             InitializeComponent();
+            load();
+            List<Coach> coaches = BaseConnect.BaseModel.Coach.ToList();
+        }
+        public PersonalCoachCard(int i)
+        {
+            InitializeComponent();
+            Coach coach = BaseConnect.BaseModel.Coach.FirstOrDefault(x => x.Id_Coach == i);
+            
+            DataContext = coach;
+            index = i;
+        }
+        public void load()
+        {
+            BaseConnect.BaseModel.Coach.ToList();
+          
+
+
+        }
+
+        private void Red_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            PageLoad.MainFrame.GoBack();
         }
     }
 }

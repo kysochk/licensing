@@ -84,9 +84,6 @@
     <Compile Include="Amplua.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="BirthCertificate.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="City.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -128,9 +125,6 @@
     <Compile Include="page\PersonalPlayerCard.xaml.cs">
       <DependentUpon>PersonalPlayerCard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Passport.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="page\PersonalCoachCard.xaml.cs">
       <DependentUpon>PersonalCoachCard.xaml</DependentUpon>
     </Compile>
@@ -145,6 +139,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Role.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Team.cs">
@@ -271,6 +268,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="resurses\Kitaeva.jpg" />
     <Resource Include="resurses\Bulbash.jpg" />
     <Resource Include="resurses\fon.png" />
     <Resource Include="resurses\_pole_margaritki__belyy__lepestki.jpg" />

@@ -12,20 +12,12 @@ namespace licensing
     using System;
     using System.Collections.Generic;
     
-    public partial class Passport
+    public partial class sysdiagrams
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Passport()
-        {
-            this.Players = new HashSet<Players>();
-        }
-    
-        public int Id_Passport { get; set; }
-        public int Series { get; set; }
-        public int Number { get; set; }
-        public int Id_Player { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Players> Players { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

@@ -7,22 +7,22 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="950"
       Title="Avtorizacia">
-  
+
     <Grid >
-       
+
         <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Border >
-               
-                <StackPanel VerticalAlignment="Center" Height="295" Width="295">
-                    <TextBlock Text="Введите логин и пароль" FontSize="20"   FontWeight="Bold" HorizontalAlignment="Center" Margin="0 5 0 0" />
+
+                <StackPanel VerticalAlignment="Center" Height="324" Width="354">
+                    <TextBlock Text="Введите логин и пароль" FontSize="25"   FontWeight="Bold" HorizontalAlignment="Center" Margin="0 5 0 0" />
                     <TextBox x:Name="logtxt" Width="auto" Height="25px"  Margin="5 20 5 0"/>
                     <PasswordBox  x:Name="PasswordTxt" Width="auto" Height="25px" Margin="5 20 5 0"/>
-                    <Button x:Name="AvtorizBtn" Style="{StaticResource  MaterialDesignRaisedLightButton}" Content="Авторизироваться" Margin="5 20 5 0" Click="AvtorizBtn_Click" IsDefault="True" />
-                    <Button x:Name="RegisBtn" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Content="Зарегистрироватся" Margin="5 20 5 0" Click="RegisBtn_Click"/>
+                    <Button x:Name="AvtorizBtn" Style="{StaticResource  MaterialDesignRaisedLightButton}" Content="Авторизироваться" Margin="5,20,4.6,0" FontSize="20" Click="AvtorizBtn_Click" IsDefault="True" Height="39" />
+
                 </StackPanel>
             </Border>
         </WrapPanel>
-      
+
 
     </Grid>
 </Page>

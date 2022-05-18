@@ -36,5 +36,10 @@ namespace licensing
         {
             PageLoad.MainFrame.Navigate(new PageCoach());
         }
+
+        private void BackMenu_Click(object sender, RoutedEventArgs e)
+        {
+            PageLoad.MainFrame.Navigate(new Avtorizacia());
+        }
     }
 }

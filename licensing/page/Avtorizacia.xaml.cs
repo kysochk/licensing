@@ -48,12 +48,15 @@ namespace licensing
             switch (UserOb.Id_Role)
             {
                 case 1:
-                    MessageBox.Show("Вы вошли как администратор");
+                   
                         PageLoad.MainFrame.Navigate(new PageMenu());
                     break;
                 default:
-                    MessageBox.Show("Вы вышли как тренер. Обратите внимание, ваш функционал ограничен");
-                        PageLoad.MainFrame.Navigate(new PagePlayers());
+                    
+                       // Coach coobj = BaseConnect.BaseModel.Coach.FirstOrDefault(u => u.Id_User == UserOb.id);
+                         
+                    
+                     // PageLoad.MainFrame.Navigate(new PagePlayers(coobj.id));
                         break;
             }
             }

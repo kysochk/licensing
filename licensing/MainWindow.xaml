@@ -13,7 +13,7 @@
     
      FontFamily="{DynamicResource MaterialDesignFont}"
         Icon="resurses/logo.ico"
-        Title="Главная страница" Height="600" Width="950" ResizeMode="NoResize">
+        Title="Лицензирование" Height="600" Width="950" ResizeMode="NoResize">
     <Window.Background>
         <ImageBrush ImageSource="resurses/fon.png"/>
     </Window.Background>
@@ -33,7 +33,7 @@
 
         <DockPanel Grid.ColumnSpan="2" LastChildFill="True">
             <Image Source="resurses\logo3.png" DockPanel.Dock="Left"/>
-            <TextBlock Text="Лицензирование Игроков России" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize ="40" />
+            <TextBlock Text="" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize ="40" />
         </DockPanel>
 
 

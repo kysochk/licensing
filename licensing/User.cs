@@ -14,11 +14,19 @@ namespace licensing
     
     public partial class User
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            this.Coach = new HashSet<Coach>();
+        }
+    
         public int Id_User { get; set; }
         public string Login { get; set; }
         public int Password { get; set; }
         public int Id_Role { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Coach> Coach { get; set; }
         public virtual Role Role { get; set; }
     }
 }

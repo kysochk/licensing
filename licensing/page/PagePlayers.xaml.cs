@@ -29,20 +29,20 @@ namespace licensing
         List<Players> players = BaseConnect.BaseModel.Players.ToList();
        
         List<int> id_play;
-        
 
-        //public PagePlayers(int i)
-        //{
-        //    InitializeComponent();
-        //    load();
-            
-        //    id_play = new List<int>();
-        //    FiltCB.ItemsSource = BaseConnect.BaseModel.Region.ToList();
-        //    FiltCB.DisplayMemberPath = "NameRegion";
-        //    FiltCB.SelectedValuePath = "Id_Region";
-        
-            
-        //}
+
+        public PagePlayers(int i)
+        {
+            InitializeComponent();
+            load();
+           
+            id_play = new List<int>();
+            FiltCB.ItemsSource = BaseConnect.BaseModel.Region.ToList();
+            FiltCB.DisplayMemberPath = "NameRegion";
+            FiltCB.SelectedValuePath = "Id_Region";
+
+
+        }
         public PagePlayers()
         {
 
@@ -99,7 +99,7 @@ namespace licensing
 
         private void FiltCB_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            //filter();
+           
             PlayList.ItemsSource = BaseConnect.BaseModel.Players.Where(x => x.Id_Region == (int)FiltCB.SelectedValue).ToList();
         }
 
@@ -181,7 +181,7 @@ namespace licensing
 
         private void BackMenu_Click(object sender, RoutedEventArgs e)
         {
-            PageLoad.MainFrame.GoBack();
+            PageLoad.MainFrame.Navigate(new PageMenu());
         }
     }
 }

@@ -28,9 +28,9 @@ namespace licensing
         public void loadT()
         {
             List<Coach> vrTC = BaseConnect.BaseModel.Coach.ToList();
-           
+            List<User> users = BaseConnect.BaseModel.User.ToList();
             vrTC.RemoveAt(0);
-          
+            users.RemoveAt(0);
 
         }
 
@@ -42,7 +42,7 @@ namespace licensing
 
         private void GoBackBtn_Click(object sender, RoutedEventArgs e)
         {
-            PageLoad.MainFrame.GoBack();
+            PageLoad.MainFrame.Navigate(new PageCoach());
         }
 
         private void savech_Click(object sender, RoutedEventArgs e)
@@ -50,24 +50,42 @@ namespace licensing
             int idte = TeamCB.SelectedIndex + 1;
             int idreg = RegCB.SelectedIndex + 1;
             int cit = CitCB.SelectedIndex + 1;
+
             try
             {
-                Coach coaobj = new Coach()
-                {
-                    Surname = Surname.Text,
-                    Name = Name.Text,
-                    Patronymic = Patronymic.Text,
-                    Bithday = GBBir.DisplayDate,
-                    Id_Team = idte,
-                    Id_Region = idreg,
-                    Id_City = cit
-
-                };
-                BaseConnect.BaseModel.Coach.Add(coaobj);
-             
+                User us = new User() { Login = LoginTB.Text, Password = PasswordTB.GetHashCode(), Id_Role = 2};
+                BaseConnect.BaseModel.User.Add(us);
+               
                 BaseConnect.BaseModel.SaveChanges();
+                Coach co = new Coach() { Surname = Surname.Text, Name = Name.Text, Patronymic = Patronymic.Text, Id_Coach = us.Id_User, Bithday = (DateTime)GBBir.SelectedDate, Id_Team = idte, Id_Region = idreg, Id_City = cit };
+                BaseConnect.BaseModel.Coach.Add(co);
 
-                MessageBox.Show("Данные успешно добавлены");
+                BaseConnect.BaseModel.SaveChanges();
+                
+                MessageBox.Show("Данные успешно зарегистрированны");
+                //Coach coaobj = new Coach()
+                //{
+                //    Surname = Surname.Text,
+                //    Name = Name.Text,
+                //    Patronymic = Patronymic.Text,
+                //    Bithday = GBBir.DisplayDate,
+                //    Id_Team = idte,
+                //    Id_Region = idreg,
+                //    Id_City = cit
+
+                //};
+                //User usobj = new User()
+                //{
+                     
+                //Login = LoginTB.Text,
+                // Password = Convert.ToInt32(PasswordTB.Text),
+                    
+                //};
+                //BaseConnect.BaseModel.Coach.Add(coaobj);
+             
+               // BaseConnect.BaseModel.SaveChanges();
+
+                //MessageBox.Show("Данные успешно добавлены");
             }
 
             catch
@@ -103,6 +121,11 @@ namespace licensing
         }
 
         private void CitCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Login_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

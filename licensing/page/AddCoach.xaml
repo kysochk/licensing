@@ -11,8 +11,13 @@
     <Grid>
         <ScrollViewer>
             <StackPanel HorizontalAlignment="Center" Grid.RowSpan="2" Width="618">
+                <GroupBox   Header="Логин" HorizontalAlignment="Center"  Margin="0,0,-0.4,0">
+                    <TextBox Width="400" x:Name="LoginTB"  Text="{Binding User.Login}"  TextChanged="Login_TextChanged"/>
+                </GroupBox>
+                <GroupBox  Header="Пароль" HorizontalAlignment="Center"  Margin="0,0,-0.4,0">
+                    <TextBox Width="400"  x:Name="PasswordTB" Text="{Binding User.Password}"  TextChanged="Login_TextChanged"/>
+                </GroupBox>
 
-               
                 <GroupBox  Header="Фамилия" HorizontalAlignment="Center"  Margin="0,0,-0.4,0">
                     <TextBox Width="400"  x:Name="Surname" Text="{Binding Surname}"  TextChanged="Surname_TextChanged"/>
                 </GroupBox>
